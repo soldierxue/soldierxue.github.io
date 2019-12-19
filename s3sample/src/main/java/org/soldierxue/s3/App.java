@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import com.amazonaws.auth.*;
+import com.amazonaws.auth.profile.*;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.regions.ServiceAbbreviations;
@@ -31,7 +32,8 @@ public class App
     public static void main( String[] args )
     {
      // AmazonS3 s3Client = new AmazonS3Client();
-      AmazonS3 s3client = new AmazonS3Client(new DefaultAWSCredentialsProviderChain());
+    //   AmazonS3 s3client = new AmazonS3Client(new DefaultAWSCredentialsProviderChain());
+      AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider("bjs"));
       Region region = Region.getRegion(Regions.fromName(regionName));
       s3client.setRegion(region);
       final String serviceEndpoint = region.getServiceEndpoint(ServiceAbbreviations.S3);
@@ -40,7 +42,7 @@ public class App
       System.out.println("setting s3 region: " + region + ", : " + serviceEndpoint);
         System.out.println( "Hello World!" );
     
-        /* list bucket */
+        // /* list bucket */
         System.out.println("List buckets:");
         for (Bucket bucket : s3client.listBuckets()) {
              System.out.println(" - " + bucket.getName());
