@@ -1,10 +1,10 @@
 # Site settings
 title: 薛以致用
 SEOTitle: 薛以致用 | BY Jason Xue
-header-img: img/home-Imagine-design-build-it.png
+header-img: img/bg-home.png
 email: soldierxue@gmail.com
 description: "学习之路漫漫，走走停停，偶有所感，随心所记，言由心声，问心无愧."
-keyword: "BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhone"
+keyword: "薛以致用, soldierxue, AWS, Cloud, Solution Architect, Solution Architecture"
 url: "http://soldierxue.github.io"         
 baseurl: ""  
 github_repo: "https://github.com/soldierxue/soldierxue.github.io" # you code repository
