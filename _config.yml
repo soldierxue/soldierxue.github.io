@@ -104,3 +104,6 @@ service-worker: true
 #         href: "http://ddd"
 #     }
 # ]
+
+# 图床
+image-srv: https://images.soldierxue.cn
