@@ -1,7 +1,7 @@
 # Site settings
 title: 薛以致用
 SEOTitle: 薛以致用 | BY Jason Xue
-header-img: img/bg-home3.png
+header-img: https://images.soldierxue.cn/img/bg-home3.png
 email: soldierxue@gmail.com
 description: "学习之路漫漫，走走停停，偶有所感，随心所记，言由心声，问心无愧."
 keyword: "薛以致用, soldierxue, AWS, Cloud, Solution Architect, Solution Architecture"
@@ -12,7 +12,7 @@ github_repo: "https://github.com/soldierxue/soldierxue.github.io" # you code rep
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "外圆内方，饮水思源"
-sidebar-avatar: /img/about-me.png
+sidebar-avatar: https://images.soldierxue.cn/img/about-me.png
 
 
 
