@@ -1,13 +1,13 @@
 {
-  "name": "BY Blog",
-  "short_name": "BY Blog",
-  "description": "A personal blog by engineer",
+  "name": "薛以致用 | By Jason Xue",
+  "short_name": "薛以致用",
+  "description": "学习之路漫漫，走走停停，偶有所感，随心所记，言由心声，问心无愧.",
   "icons": [{
-    "src": "icons/pwa_icon_128.png",
+    "src": "icons/pwa_icon_3.png",
     "sizes": "128x128",
     "type": "image/png"
   }, {
-    "src": "icons/pwa_icon_512.png",
+    "src": "icons/pwa_icon_3.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
