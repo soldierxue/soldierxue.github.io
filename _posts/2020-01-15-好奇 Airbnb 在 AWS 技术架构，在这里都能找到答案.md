@@ -186,7 +186,7 @@ Zipline 的初衷是算法科学家花在准备数据上的时间太多，超 60
 # 参考资料
 
 * [Airbnb AWS 案例](https://aws.amazon.com/cn/solutions/case-studies/airbnb-case-study/)
-* [商业模式分析 | 共享经济代表——Airbnb](https://zhuanlan.zhihu.com/p/24196848)
+* [商业模式分析 共享经济代表——Airbnb](https://zhuanlan.zhihu.com/p/24196848)
 * [Airbnb Architecture](https://enqueuezero.com/airbnb-architecture.html)
 * [Airbnb确定今年晚些时候IPO　估值超310亿美元](https://www.traveldaily.cn/article/128925)
 * https://airbnb.io/
