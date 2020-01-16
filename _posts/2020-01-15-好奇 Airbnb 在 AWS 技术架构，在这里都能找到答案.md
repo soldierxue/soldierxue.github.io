@@ -111,7 +111,7 @@ SmartStack 类似如今的 Service Mesh，服务通过本机的边车（Sidecar�
 
 ## 数据分析基础平台架构
 
-![datainfra]]({{site.image-srv}}/img/20200115/datainfra.png)
+![datainfra]({{site.image-srv}}/img/20200115/datainfra.png)
 
 * 应用将消息和事件写入 Kafka 
 * 利用 Sqoop 将 RDS 数据导入到 Hadoop
