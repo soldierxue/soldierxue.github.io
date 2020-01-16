@@ -63,14 +63,14 @@ Airbnb 用户遍布 190个国家近34000个城市，发布的房屋租赁信息�
 2015年左右他们是典型的单体架构基于 Ruby on Rails，部署在单一的 AWS 美东区域，全部是 Amazon EC2 部署，该单体应用在2018年Q2有消耗 2000台 EC2 ，前端从 CDN 进入 Nginx 负债均衡进行分发，服务基于 JSON over HTTP/S 协议，业务逻辑相当复杂，比如对于一个P3模块（显示房间列表及详情）就有19张核心表，总共 71张数据表；对于P4模块（即订单和下单模块）超150张核心表。
 
 * 架构图：
-![monorail]({{site.image-srv}}/img/20200110/arch3.png)
+![monorail]({{site.image-srv}}/img/20200115/arch3.png)
 
 ## SOA 微服务架构
 
 2016~2017年，开始 SOA 改造，改造的前后各种考量请参考前文[《客户案例分析：Airbnb单体到微服务改造之旅(1)》](https://mp.weixin.qq.com/s?__biz=MzU3Mzg1Njk0Ng==&mid=2247483809&idx=1&sn=9addcef4b345189ad5d1c741570d226c&chksm=fd3a0c7cca4d856a0e96a3715e86aea1eef24d3fcc658913c6dc583f3962e91999bb45e68a75&token=1342961021&lang=zh_CN#rd)
 
 * 架构图示意：
-![PDPService]({{site.image-srv}}/img/20200110/homepdpsoa.png)
+![PDPService]({{site.image-srv}}/img/20200115/homepdpsoa.png)
 
 ### 数据库 Amazon Aurora
 
