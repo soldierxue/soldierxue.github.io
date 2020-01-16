@@ -8,6 +8,7 @@ header-img: img/post-bg20200106.jpeg
 catalog: true
 tags:
     - 案例
+    - airbnb
     - OTA
     - 云计算
     - AWS
