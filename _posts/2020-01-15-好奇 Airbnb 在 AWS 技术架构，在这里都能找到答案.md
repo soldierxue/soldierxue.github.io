@@ -65,14 +65,14 @@ Airbnb 用户遍布 190个国家近34000个城市，发布的房屋租赁信息�
 * 架构图：
 ![monorail]({{site.image-srv}}/img/20200115/arch3.png)
 
-## SOA 微服务架构
+### SOA 微服务架构
 
 2016~2017年，开始 SOA 改造，改造的前后各种考量请参考前文[《客户案例分析：Airbnb单体到微服务改造之旅(1)》](https://mp.weixin.qq.com/s?__biz=MzU3Mzg1Njk0Ng==&mid=2247483809&idx=1&sn=9addcef4b345189ad5d1c741570d226c&chksm=fd3a0c7cca4d856a0e96a3715e86aea1eef24d3fcc658913c6dc583f3962e91999bb45e68a75&token=1342961021&lang=zh_CN#rd)
 
 * 架构图示意：
 ![PDPService]({{site.image-srv}}/img/20200115/homepdpsoa.png)
 
-### 数据库 Amazon Aurora
+#### 数据库 Amazon Aurora
 
 * 绝大多数 MySQL，少部分 Postgres / Oracle
 * 从 2011年开始全部是全托管的 RDS 服务
@@ -83,13 +83,13 @@ Airbnb 用户遍布 190个国家近34000个城市，发布的房屋租赁信息�
 
 ![MySQLvsAurora]({{site.image-srv}}/img/20200115/aurora_pk_mysql.png)
 
-### 微服务 API 框架
+#### 微服务 API 框架
 
 同时支持两种协议，一个是 JSON over HTTP，另外一个是 RPC 方式的 Thrift over HTTP，开发者而言，很多基本的服务治理相关逻辑，由 IDL 定义并自动生成。
 
 ![apiframework]({{site.image-srv}}/img/20200115/apiframework.png)
 
-### 服务发现 - SmartStack
+#### 服务发现 - SmartStack
 
 SmartStack 类似如今的 Service Mesh，服务通过本机的边车（Sidecar）代理（HAProxy）进行互相之间的调用和路由，其中两个组件 Nerve 和 Synapse 都已经开源，SmartStack 应该是最早（2013年前后）的 “Service Mesh” 的雏形；如下图所示，服务注册库基于 Zookeeper，组件 Nerve 负责主机上的服务发现，健康检查和服务下线等操作；Synapse 负责监听 ZK 的动态变化，并生成并更新 HAProxy的服务路由配置；HAProxy 在这里作为一个 Sidecar（边车）代理服务消费者到服务提供方之间的请求。该架构对应用无任何侵入性，不需要自行处理服务注册和发现。
 
@@ -97,19 +97,19 @@ SmartStack 类似如今的 Service Mesh，服务通过本机的边车（Sidecar�
 
 ![smartstack]({{site.image-srv}}/img/20200115/smartstack.png)
 
-#### 负载均衡 - Charon
+##### 负载均衡 - Charon
 
 微服务中期望将上下文传播到下游的服务中去，因此引入了 Nginx 作为外部服务入口，由于前端 CDN 分发不均衡问题，Airbnb 团队，在 CDN 和 Nginx 之间还是引入了 Amazon ELB。
 
 内部服务以 ```<service name>.dyno``` 命名，所有发送到 *.dyno 的请求都会通过 DNS 指向 Dyno 服务实例组，Dyno 也类似 Nginx，从请求报文 Header 中截取服务名称，并通过 Synapse 和 HAProxy 来处理到目标服务的访问；Dyno 同时也负责服务的认证授权。
 
-#### API Gateway - Kraken （JSON Over HTTP）
+##### API Gateway - Kraken （JSON Over HTTP）
 
 移动端和 Web 端调用，从负载均衡 Charon 进来，到 Kraken 进行路由和全局处理，再路由到下层领域服务；
 
 # 数据分析
 
-## 数据分析基础平台架构
+### 数据分析基础平台架构
 
 ![datainfra]({{site.image-srv}}/img/20200115/datainfra.png)
 
@@ -126,7 +126,7 @@ SmartStack 类似如今的 Service Mesh，服务通过本机的边车（Sidecar�
 
 公开资料显示，Airbnb 拥有 30人规模的 Data Science 团队。
 
-## 房东可以理解的机器学习库 - Aerosolve
+### 房东可以理解的机器学习库 - Aerosolve
 
 主要解决 Airbnb 共享经济中，房屋定价和需求匹配问题，重点强调算法可解释性，集合机器学习和人工经验；比如房屋的动态定价问题，影响因素特别多，有房屋位置，季节和时间，有百万间独立房屋带有不同的服务比如面积大小，家具，等等，用户有不同的喜好，比如服务，食物等；非正常因素，比如当地的活动或节假日。 
 
@@ -143,7 +143,7 @@ Aerosolve 从常识出发，结合数据训练，比如价格提升，成交概�
 
 ![dynapricing]({{site.image-srv}}/img/20200115/dyna_pricing.gif)
 
-## 机器学习基础设施平台 - Zipline(数据管理) & BigHead(UI)
+### 机器学习基础设施平台 - Zipline(数据管理) & BigHead(UI)
 
 目标是赋能 Airbnb 算法团队一个高效的 ML 共享基础设施平台，降低构建生产级 ML 应用的复杂度；构建 ML 应用的复杂度在于，和数仓集成，扩展模型训练和推理服务，在原型和生产之间，在训练和推理之间，如何保障一致性？跟踪多个模型版本，ML 模型的迭代；
 
@@ -153,7 +153,7 @@ ML 模型通常只需要8~12周来构建完成，但 ML 工作流常常比预计
 
 整个基础设施串接 ML 的原型环境，Jupyter Notebook加强版 Redspot，容器环境和生产环境，包括实时推理和批处理（训练+推理）
 
-### 实验环境：Redspot 
+#### 实验环境：Redspot 
 
 增强的 JupyterHub，
 
@@ -163,11 +163,11 @@ ML 模型通常只需要8~12周来构建完成，但 ML 工作流常常比预计
 * 集成 Bighead 服务
 * 保障实验和生产环境，模型的一致性
 
-### Docker Image Service 服务：
+#### Docker Image Service 服务：
 
 * 面向 ML 定制化的依赖管理，保障环境的一致性
 
-### Bighead 服务
+#### Bighead 服务
 
 ML 生命周期管理，
 
@@ -176,7 +176,7 @@ ML 生命周期管理，
 * 不同模型效果的对比
 * 提供 Bighead library，构建一致的 ML Pipeline（提供可视化），屏蔽底层框架差异，模型训练的元数据管理，等等
 
-### 数据管理 Zipline
+#### 数据管理 Zipline
 
 Zipline 的初衷是算法科学家花在准备数据上的时间太多，超 60% 以上，但前面我们已经提到 Hadoop 数据平台，为什么还需要构建一个新的 Zipline？ Hadoop 数据仓库面向是分析师而不是 ML 模型，ML 特征数据的表达和数据仓库不一样，比如过去7天的订单量，模型需要的值是 0 还是 1，但数仓中一般是累加数值，比如3， 4等等，另外缺少更多的特征，比如进一步要求过去12个小时的订单数；同时已有的应用数据库数据，也不适合直接给到模型做训练。
 
