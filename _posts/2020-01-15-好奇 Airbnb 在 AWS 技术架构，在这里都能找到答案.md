@@ -109,7 +109,7 @@ SmartStack 类似如今的 Service Mesh，服务通过本机的边车（Sidecar�
 
 # 数据分析
 
-## 数据分析基础平台架构：Kafka/Hive/Spark/Airflow/Presto
+## 数据分析基础平台架构
 
 ![datainfra]]({{site.image-srv}}/img/20200115/datainfra.png)
 
