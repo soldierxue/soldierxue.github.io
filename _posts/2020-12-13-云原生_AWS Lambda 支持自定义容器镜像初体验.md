@@ -31,9 +31,9 @@ OpenCV 的正面人脸识别是费老师这个视频的第一个示例，同时�
 原本的方法，是利用 AWS Toolkit + SAM CLI + 本地 Lambda Docker 模拟环境，老实说，想想头就有点大，没想到今年的 reinvent 就给了一个非常大的惊喜，直接支持自定义容器镜像！
 
 ```
-./zipfile.sh
-./deploy.sh
-./invoke.sh
+$ ./zipfile.sh
+$ ./deploy.sh
+$ ./invoke.sh
 
 Execution time was 3355973833 nanoseconds.
 Execution time was 3355 milliseconds.
@@ -75,7 +75,7 @@ CMD [ "app.lambda_handler" ]
 本地构建该容器镜像，并在一个 Terminal 中启动该镜像，这个案例中，需要提供两个 Lambda 环境变量，在 docker run 命令中直接设定 S3 的桶名和对象键值：
 
 ```
-docker build -t lopencv .
+$ docker build -t lopencv .
 
 $ docker images
 REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
@@ -90,7 +90,7 @@ time="2020-12-13T13:18:55.011" level=info msg="exec '/var/runtime/bootstrap' (cw
 接下来就可以进行 Lambda 函数的本地测试了，通过 CURL 命令传入所需要的事件 JSON 数据（本案例不需要，演示用）：
 
 ```
- curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"payload":"hello world!"}'
+$ curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"payload":"hello world!"}'
 
 {"statusCode": 200, "body": {"message": "Find 7 face(s),image saved to s3://jxlabs/ml/opencv/vollyballcn.jpg_rs.jpg"}, "headers": {"Content-Type": "application/json"}}
 
