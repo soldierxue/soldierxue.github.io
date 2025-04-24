@@ -8,13 +8,13 @@ keyword: "薛以致用, soldierxue, AWS, Cloud, Solution Architect, Solution Arc
 url: "https://soldierxue.github.io"         
 baseurl: ""
 # 图床
-image-srv: https://xyzy.nwcdclub.cn  
+image-srv: https://d3an7w77306v75.cloudfront.net  
 github_repo: "https://github.com/soldierxue/soldierxue.github.io" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "外圆内方，饮水思源"
-sidebar-avatar: https://images.soldierxue.cn/img/about-me.png
+sidebar-avatar: https://d3an7w77306v75.cloudfront.net/img/about-me.png
 
 
 
