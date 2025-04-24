@@ -11,6 +11,19 @@ baseurl: ""
 image-srv: https://d3an7w77306v75.cloudfront.net  
 github_repo: "https://github.com/soldierxue/soldierxue.github.io" # you code repository
 
+# 多语言支持
+languages:
+  zh:
+    home: 首页
+    about: 关于
+    tags: 标签
+    archive: 归档
+  en:
+    home: Home
+    about: About
+    tags: Tags
+    archive: Archive
+
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "外圆内方，饮水思源"

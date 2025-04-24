@@ -1,7 +1,10 @@
 ---
 layout: page
 title: "关于"
+title-zh: "关于"
+title-en: "About"
 description: "欢迎来到薛以致用的地盘."
+description-en: "Welcome to Jason Xue's blog."
 header-img: "img/bg-about-blog-1.png"
 ---
 
@@ -14,14 +17,28 @@ header-img: "img/bg-about-blog-1.png"
 
     <img src="{{site.image-srv}}/img/qrcode_wechat.jpg" />
 
-    <p>
-        Jason Xue, an alumnus of Fudan University-Washington University EMBA C22 program, is a Senior Manager - Solutions Architects (SA) at Amazon Web Services (AWS). He currently leads the Strategic Customers SA team, supporting China's top enterprises in their global business expansion. Jason built and nurtured the "E-commerce Industry Expert Squad" with over 50 core members, driving business growth for customers including SHEIN, PatPat, Shinho, Amway, RED, etc. As a certified Amazon Innovation Culture trainer, he has empowered renowned companies like Trip.com, miHoYo, and Geely with innovation capabilities, earning Platinum membership in the Culture Enablement Community. Since joining AWS in 2016, he has successfully transformed from an individual contributor to a senior leader, guiding his team to become trusted advisors for numerous clients in their digital and AI transformation journeys. Jason is passionate about new technologies, community evangelism, and customer service.
-    </p>
+    <p>薛军，复旦大学-华盛顿大学EMBA C22班校友，现任亚马逊云科技（AWS）高级经理-解决方案架构师，领导战略客户解决方案架构师团队，支持中国顶级企业的全球业务扩展。他建立并培养了拥有50多名核心成员的"电子商务行业专家小组"，推动了包括SHEIN、PatPat、欣和、安利、小红书等客户的业务增长。作为认证的亚马逊创新文化培训师，他为携程、米哈游、吉利等知名公司赋能创新能力，在文化赋能社区获得白金会员资格。自2016年加入AWS以来，他成功地从个人贡献者转变为高级领导者，指导团队成为众多客户数字化和AI转型旅程中的可信顾问。薛杰热衷于新技术、社区布道和客户服务。</p>
 
     <p>本站直接参考了 <a href="https://github.com/qiubaiying/qiubaiying.github.io">博客搭建详细教程</a>构建而成，感谢原作者的贡献~~</p>
 
     <p></p>
 
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    <blockquote><p>Learning is a lifelong journey with occasional stops.<br>
+    From customers, to customers.</p></blockquote>
+
+    <img src="{{site.image-srv}}/img/qrcode_wechat.jpg" />
+
+    <p>
+        Jason Xue, an alumnus of Fudan University-Washington University EMBA C22 program, is a Senior Manager - Solutions Architects (SA) at Amazon Web Services (AWS). He currently leads the Strategic Customers SA team, supporting China's top enterprises in their global business expansion. Jason built and nurtured the "E-commerce Industry Expert Squad" with over 50 core members, driving business growth for customers including SHEIN, PatPat, Shinho, Amway, RED, etc. As a certified Amazon Innovation Culture trainer, he has empowered renowned companies like Trip.com, miHoYo, and Geely with innovation capabilities, earning Platinum membership in the Culture Enablement Community. Since joining AWS in 2016, he has successfully transformed from an individual contributor to a senior leader, guiding his team to become trusted advisors for numerous clients in their digital and AI transformation journeys. Jason is passionate about new technologies, community evangelism, and customer service.
+    </p>
+
+    <p>This site was built with reference to <a href="https://github.com/qiubaiying/qiubaiying.github.io">this detailed blog setup tutorial</a>. Thanks to the original author for their contribution!</p>
+
+    <p></p>
 </div>
 
 <!-- Handle Language Change -->
@@ -62,6 +79,15 @@ header-img: "img/bg-about-blog-1.png"
 
     // init
     _render();
+    
+    // Sync with global language setting
+    document.addEventListener('DOMContentLoaded', function() {
+        var savedLang = localStorage.getItem('blog-language');
+        if (savedLang === 'en') {
+            window.location.hash = "#en";
+            _render();
+        }
+    });
 </script>
 
 

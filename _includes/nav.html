@@ -17,13 +17,33 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ site.baseurl }}/">首页</a>
+                        <a href="{{ site.baseurl }}/" class="lang-item" data-lang-zh="首页" data-lang-en="Home">
+                            {% if page.lang == 'en' %}
+                                {{ site.languages.en.home }}
+                            {% else %}
+                                {{ site.languages.zh.home }}
+                            {% endif %}
+                        </a>
                     </li>
                     {% for page in site.pages %}{% if page.title %}
                     <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                        <a href="{{ page.url | prepend: site.baseurl }}" class="lang-item" 
+                           data-lang-zh="{{ page.title-zh | default: page.title }}" 
+                           data-lang-en="{{ page.title-en | default: page.title }}">
+                            {% if page.lang == 'en' %}
+                                {{ page.title-en | default: page.title }}
+                            {% else %}
+                                {{ page.title-zh | default: page.title }}
+                            {% endif %}
+                        </a>
                     </li>
                     {% endif %}{% endfor %}
+                    <!-- Language Selector -->
+                    <li class="language-selector">
+                        <a href="javascript:void(0);" onclick="toggleLanguage()" id="language-toggle">
+                            <span id="current-lang">中文</span> / <span>English</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -82,4 +102,46 @@
         if(e.target.className == 'icon-bar') return;
         __HuxNav__.close();
     })
+
+    // Language switcher
+    function toggleLanguage() {
+        var currentLang = localStorage.getItem('blog-language') || 'zh';
+        var newLang = currentLang === 'zh' ? 'en' : 'zh';
+        
+        // Save the language preference
+        localStorage.setItem('blog-language', newLang);
+        
+        // Update UI
+        updateLanguageUI(newLang);
+    }
+
+    function updateLanguageUI(lang) {
+        // Update language toggle text
+        document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
+        
+        // Update all navigation items
+        var langItems = document.querySelectorAll('.lang-item');
+        langItems.forEach(function(item) {
+            if (lang === 'en') {
+                item.textContent = item.getAttribute('data-lang-en');
+            } else {
+                item.textContent = item.getAttribute('data-lang-zh');
+            }
+        });
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        var savedLang = localStorage.getItem('blog-language') || 'zh';
+        updateLanguageUI(savedLang);
+    });
 </script>
+
+<style>
+    .language-selector {
+        margin-left: 15px;
+    }
+    #language-toggle {
+        cursor: pointer;
+    }
+</style>
