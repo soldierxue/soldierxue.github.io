@@ -10,29 +10,31 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
-            <span class="lang-content" data-lang="zh">{{ post.title }}</span>
+            <span class="lang-content" data-lang="zh" style="display:none;">{{ post.title }}</span>
             <span class="lang-content" data-lang="en" style="display:none;">{{ post.title-en | default: post.title }}</span>
         </h2>
         {% if post.subtitle or post.subtitle-en %}
         <h3 class="post-subtitle">
-            <span class="lang-content" data-lang="zh">{{ post.subtitle }}</span>
+            <span class="lang-content" data-lang="zh" style="display:none;">{{ post.subtitle }}</span>
             <span class="lang-content" data-lang="en" style="display:none;">{{ post.subtitle-en | default: post.subtitle }}</span>
         </h3>
         {% endif %}
         <div class="post-content-preview">
-            <span class="lang-content" data-lang="zh">{{ post.content | strip_html | truncate:200 }}</span>
+            <span class="lang-content" data-lang="zh" style="display:none;">{{ post.content | strip_html | truncate:200 }}</span>
             <span class="lang-content" data-lang="en" style="display:none;">
-                {% assign post_id = post.date | date: "%Y-%m-%d" | append: "-" | append: post.title | slugify %}
-                {% if site.data.translations[post_id].content %}
-                    {{ site.data.translations[post_id].content | strip_html | truncate:200 }}
+                {% for translation in site.data.translations %}
+                    {% if translation[0] contains post.date | date: "%Y-%m-%d" %}
+                        {{ translation[1].content | strip_html | truncate:200 }}
+                        {% break %}
+                    {% endif %}
                 {% else %}
                     {{ post.content | strip_html | truncate:200 }}
-                {% endif %}
+                {% endfor %}
             </span>
         </div>
     </a>
     <p class="post-meta">
-        <span class="lang-content" data-lang="zh">
+        <span class="lang-content" data-lang="zh" style="display:none;">
             由 {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} 发布于 {{ post.date | date: "%Y-%m-%d" }}
         </span>
         <span class="lang-content" data-lang="en" style="display:none;">
@@ -49,7 +51,7 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
     {% if paginator.previous_page %}
     <li class="previous">
         <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
-            <span class="lang-content" data-lang="zh">上一页</span>
+            <span class="lang-content" data-lang="zh" style="display:none;">上一页</span>
             <span class="lang-content" data-lang="en" style="display:none;">Newer Posts</span>
         </a>
     </li>
@@ -57,7 +59,7 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
     {% if paginator.next_page %}
     <li class="next">
         <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
-            <span class="lang-content" data-lang="zh">下一页</span>
+            <span class="lang-content" data-lang="zh" style="display:none;">下一页</span>
             <span class="lang-content" data-lang="en" style="display:none;">Older Posts</span>
         </a>
     </li>
@@ -66,3 +68,21 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
 {% endif %}
 <!-- Translation Progress -->
 {% include translation-progress.html %}
+{% raw %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取保存的语言设置
+    var savedLang = localStorage.getItem('blog-language') || 'zh';
+    
+    // 立即应用语言设置
+    var langContents = document.querySelectorAll('.lang-content');
+    langContents.forEach(function(item) {
+        if (item.getAttribute('data-lang') === savedLang) {
+            item.style.display = 'inline';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+</script>
+{% endraw %}
