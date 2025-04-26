@@ -77,32 +77,51 @@ layout: default
                 
                 <!-- English Version -->
                 <div class="en post-container" style="display:none;">
+                    {% assign post_id = page.date | date: "%Y-%m-%d" | append: "-" | append: page.title %}
                     {% if page.content-en %}
                         {{ page.content-en }}
-                    {% elsif site.data.translations[page.path | remove: '_posts/' | remove: '.md'].content %}
-                        {{ site.data.translations[page.path | remove: '_posts/' | remove: '.md'].content | markdownify }}
+                    {% elsif site.data.translations[post_id].content %}
+                        {{ site.data.translations[post_id].content | markdownify }}
                     {% else %}
-                        {{ content }}
+                        {% for translation in site.data.translations %}
+                            {% assign post_date = page.date | date: "%Y-%m-%d" %}
+                            {% if translation[0] contains post_date %}
+                                {{ translation[1].content | markdownify }}
+                                {% break %}
+                            {% endif %}
+                        {% else %}
+                            {{ content }}
+                        {% endfor %}
                     {% endif %}
                 </div>
                 
                 <hr>
-                <p><img src="{{site.image-srv}}/img/qrcode_wechat.jpg" alt="公众号二维码"></p>
-
-                <p style="text-align:center">诞生于 2019，遇见 2020。</p>
-                
-                <p style="text-align:center">感谢关注，欢迎动动手指标星和置顶；
-                
-                <p style="text-align:center">这样就不会错过少但精彩的技术探讨、团队建设、案例分享！
-                
-                <p style="text-align:center">每周至少一更，转发是对我的最大鼓励！
-                
-                <p style="text-align:center">学习之路漫漫，走走停停，<br/>
-                偶有所感，随心所记，<br/>
-                言由心声，问心无愧！<br/>
-                <br/>
-                从客户中来，到客户中去！
-                <p>
+                <div class="post-footer">
+                    <div class="lang-content" data-lang="zh" style="display:none;">
+                        <p><img src="{{site.image-srv}}/img/qrcode_wechat.jpg" alt="公众号二维码"></p>
+                        <p style="text-align:center">诞生于 2019，遇见 2020。</p>
+                        <p style="text-align:center">感谢关注，欢迎动动手指标星和置顶；</p>
+                        <p style="text-align:center">这样就不会错过少但精彩的技术探讨、团队建设、案例分享！</p>
+                        <p style="text-align:center">每周至少一更，转发是对我的最大鼓励！</p>
+                        <p style="text-align:center">学习之路漫漫，走走停停，<br/>
+                        偶有所感，随心所记，<br/>
+                        言由心声，问心无愧！<br/>
+                        <br/>
+                        从客户中来，到客户中去！</p>
+                    </div>
+                    <div class="lang-content" data-lang="en" style="display:none;">
+                        <p><img src="{{site.image-srv}}/img/qrcode_wechat.jpg" alt="WeChat QR Code"></p>
+                        <p style="text-align:center">Born in 2019, meeting 2020.</p>
+                        <p style="text-align:center">Thanks for your attention, please feel free to star and pin;</p>
+                        <p style="text-align:center">So you won't miss the few but excellent technical discussions, team building, and case sharing!</p>
+                        <p style="text-align:center">At least one update per week, sharing is the greatest encouragement for me!</p>
+                        <p style="text-align:center">The learning journey is long, with stops and starts,<br/>
+                        Occasional insights, recorded at heart,<br/>
+                        Words from the heart, with a clear conscience!<br/>
+                        <br/>
+                        From customers, to customers!</p>
+                    </div>
+                </div>
 
                 <hr style="visibility: hidden;">
 
@@ -110,16 +129,20 @@ layout: default
                     {% if page.previous.url %}
                     <li class="previous">
                         <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
-                        Previous<br>
-                        <span>{{page.previous.title}}</span>
+                        <span class="lang-content" data-lang="zh">上一篇</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">Previous</span><br>
+                        <span class="lang-content" data-lang="zh">{{page.previous.title}}</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">{{page.previous.title-en | default: page.previous.title}}</span>
                         </a>
                     </li>
                     {% endif %}
                     {% if page.next.url %}
                     <li class="next">
                         <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
-                        Next<br>
-                        <span>{{page.next.title}}</span>
+                        <span class="lang-content" data-lang="zh">下一篇</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">Next</span><br>
+                        <span class="lang-content" data-lang="zh">{{page.next.title}}</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">{{page.next.title-en | default: page.next.title}}</span>
                         </a>
                     </li>
                     {% endif %}
@@ -170,7 +193,10 @@ layout: default
                 <div class="side-catalog">
                     <hr class="hidden-sm hidden-xs">
                     <h5>
-                        <a class="catalog-toggle" href="#">CATALOG</a>
+                        <a class="catalog-toggle" href="#">
+                            <span class="lang-content" data-lang="zh">目录</span>
+                            <span class="lang-content" data-lang="en" style="display:none;">CATALOG</span>
+                        </a>
                     </h5>
                     <ul class="catalog-body"></ul>
                 </div>
@@ -187,11 +213,15 @@ layout: default
                 {% if site.featured-tags %}
                 <section>
                     <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <h5>
+                        <span class="lang-content" data-lang="zh">特色标签</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">FEATURED TAGS</span>
+                    </h5>
                     <div class="tags">
         				{% for tag in site.tags %}
                             {% if tag[1].size > {{site.featured-condition-size}} %}
-                				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" class="tag-item" 
+                                   data-tag-zh="{{ tag[0] }}" data-tag-en="{{ site.tag_translations[tag[0]] | default: tag[0] }}">
                                     {{ tag[0] }}
                                 </a>
                             {% endif %}
@@ -203,7 +233,10 @@ layout: default
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>
-                <h5>FRIENDS</h5>
+                <h5>
+                    <span class="lang-content" data-lang="zh">友情链接</span>
+                    <span class="lang-content" data-lang="en" style="display:none;">FRIENDS</span>
+                </h5>
                 <ul class="list-inline">
                     {% for friend in site.friends %}
                         <li><a href="{{friend.href}}">{{friend.title}}</a></li>
