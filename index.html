@@ -22,14 +22,26 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
         <div class="post-content-preview">
             <span class="lang-content" data-lang="zh" style="display:none;">{{ post.content | strip_html | truncate:200 }}</span>
             <span class="lang-content" data-lang="en" style="display:none;">
-                {% for translation in site.data.translations %}
-                    {% if translation[0] contains post.date | date: "%Y-%m-%d" %}
-                        {{ translation[1].content | strip_html | truncate:200 }}
-                        {% break %}
-                    {% endif %}
+                {% comment %}Debug information for translation lookup{% endcomment %}
+                {% assign post_date = post.date | date: "%Y-%m-%d" %}
+                {% assign post_id = post_date | append: "-" | append: post.title %}
+                
+                {% if site.data.translations[post_id] %}
+                    {{ site.data.translations[post_id].content | strip_html | truncate:200 }}
                 {% else %}
-                    {{ post.content | strip_html | truncate:200 }}
-                {% endfor %}
+                    {% assign found_translation = false %}
+                    {% for translation in site.data.translations %}
+                        {% if translation[0] contains post_date %}
+                            {{ translation[1].content | strip_html | truncate:200 }}
+                            {% assign found_translation = true %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if found_translation != true %}
+                        {{ post.content | strip_html | truncate:200 }}
+                    {% endif %}
+                {% endif %}
             </span>
         </div>
     </a>
@@ -83,6 +95,21 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.display = 'none';
         }
     });
+    
+    // 检查是否有空的英文内容
+    if (savedLang === 'en') {
+        var englishContents = document.querySelectorAll('.lang-content[data-lang="en"]');
+        englishContents.forEach(function(item) {
+            if (item.textContent.trim() === '') {
+                // 如果英文内容为空，显示对应的中文内容
+                var parent = item.parentElement;
+                var zhContent = parent.querySelector('.lang-content[data-lang="zh"]');
+                if (zhContent) {
+                    item.textContent = zhContent.textContent;
+                }
+            }
+        });
+    }
 });
 </script>
 {% endraw %}
