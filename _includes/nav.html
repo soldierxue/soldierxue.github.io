@@ -25,19 +25,21 @@
                             {% endif %}
                         </a>
                     </li>
-                    {% for page in site.pages %}{% if page.title %}
-                    <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}" class="lang-item" 
-                           data-lang-zh="{{ page.title-zh | default: page.title }}" 
-                           data-lang-en="{{ page.title-en | default: page.title }}">
-                            {% if page.lang == 'en' %}
-                                {{ page.title-en | default: page.title }}
-                            {% else %}
-                                {{ page.title-zh | default: page.title }}
-                            {% endif %}
-                        </a>
-                    </li>
-                    {% endif %}{% endfor %}
+                    {% for p in site.pages %}
+                        {% if p.title and p.url != '/404.html' and p.url != '/offline.html' %}
+                        <li>
+                            <a href="{{ p.url | prepend: site.baseurl }}" class="lang-item" 
+                               data-lang-zh="{{ p.title-zh | default: p.title }}" 
+                               data-lang-en="{{ p.title-en | default: p.title }}">
+                                {% if p.lang == 'en' %}
+                                    {{ p.title-en | default: p.title }}
+                                {% else %}
+                                    {{ p.title-zh | default: p.title }}
+                                {% endif %}
+                            </a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
                     <!-- Language Selector -->
                     <li class="language-selector">
                         <a href="javascript:void(0);" onclick="toggleLanguage()" id="language-toggle">

@@ -47,6 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 更新标签
         updateTags(lang);
+        
+        // 触发语言变更事件，供其他脚本使用
+        var event = new CustomEvent('languageChanged', {
+            detail: {
+                language: lang
+            }
+        });
+        window.dispatchEvent(event);
     }
     
     // 更新标签显示
