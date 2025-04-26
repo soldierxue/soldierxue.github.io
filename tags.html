@@ -14,8 +14,14 @@ header-img: "img/bg-tags.png"
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading" id="tag-heading">
-                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-                    <span class="subheading">{{ page.description }}</span>
+                    <h1 data-title-zh="{{ page.title-zh | default: page.title }}" data-title-en="{{ page.title-en | default: page.title }}">
+                        <span class="lang-content" data-lang="zh">{{ page.title-zh | default: page.title }}</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">{{ page.title-en | default: page.title }}</span>
+                    </h1>
+                    <span class="subheading" data-desc-zh="{{ page.description }}" data-desc-en="{{ page.description-en | default: page.description }}">
+                        <span class="lang-content" data-lang="zh">{{ page.description }}</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">{{ page.description-en | default: page.description }}</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -29,7 +35,10 @@ header-img: "img/bg-tags.png"
             <!-- 标签云 -->
 			<div id='tag_cloud' class="tags">
 				{% for tag in site.tags %}
-				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+				<a class="tag-item" href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}"
+				   data-tag-zh="{{ tag[0] }}" data-tag-en="{{ site.tag_translations[tag[0]] | default: tag[0] }}">
+				   {{ tag[0] }}
+				</a>
 				{% endfor %}
 			</div>
 
@@ -43,7 +52,7 @@ header-img: "img/bg-tags.png"
 			{% for tag in site.tags %}
 			<div class="one-tag-list">
 			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
-                    <span class="tag-text">{{ tag[0] }}</span>
+                    <span class="tag-item tag-text" data-tag-zh="{{ tag[0] }}" data-tag-en="{{ site.tag_translations[tag[0]] | default: tag[0] }}">{{ tag[0] }}</span>
                 </span>
 				{% for post in tag[1] %}
 				  <!-- <li class="listing-item">

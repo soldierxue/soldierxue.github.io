@@ -1,15 +1,24 @@
 ---
 layout:     post
 title:      是该提升开发人员体验 - Amazon Software Builder Experience 团队
+title-en:   Time to Enhance Developer Experience - Amazon Software Builder Experience Team
 subtitle:   改善构建者体验，提高员工生产力和满意度
+subtitle-en: Improving Builder Experience, Enhancing Employee Productivity and Satisfaction
 date:       2024-11-11
 author:     薛以致用
+author-en:  Jason Xue
 header-img: img/post-bg20200106.jpeg
 catalog: true
+description: 探索亚马逊如何通过ASBX团队改善开发者体验，提高生产力和满意度
+description-en: Exploring how Amazon improves developer experience through the ASBX team to enhance productivity and satisfaction
 tags:
     - 技术
     - 开发者体验
     - 亚马逊
+tags-en:
+    - Technology
+    - Developer Experience
+    - Amazon
 ---
 
 亚马逊致力于改善构建者体验，并使用数据驱动的方法来提高员工生产力和满意度（体验）

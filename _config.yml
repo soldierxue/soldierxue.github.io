@@ -120,3 +120,16 @@ service-worker: true
 #     }
 # ]
 
+# 标签翻译
+tag_translations:
+  亚马逊: "Amazon"
+  组织架构: "Organizational Structure"
+  管理: "Management"
+  技术: "Technology"
+  开发者体验: "Developer Experience"
+  AI: "AI"
+  财报分析: "Financial Analysis"
+  云计算: "Cloud Computing"
+  架构设计: "Architecture Design"
+  微服务: "Microservices"
+  数据分析: "Data Analytics"
