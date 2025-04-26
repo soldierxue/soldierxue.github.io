@@ -11,26 +11,12 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
             <span class="lang-content" data-lang="zh">{{ post.title }}</span>
-            <span class="lang-content" data-lang="en" style="display:none;">
-                {% assign post_id = post.date | date: "%Y-%m-%d" | append: "-" | append: post.title | slugify %}
-                {% if site.data.translations[post_id].title %}
-                    {{ site.data.translations[post_id].title }}
-                {% else %}
-                    {{ post.title-en | default: post.title }}
-                {% endif %}
-            </span>
+            <span class="lang-content" data-lang="en" style="display:none;">{{ post.title-en | default: post.title }}</span>
         </h2>
         {% if post.subtitle or post.subtitle-en %}
         <h3 class="post-subtitle">
             <span class="lang-content" data-lang="zh">{{ post.subtitle }}</span>
-            <span class="lang-content" data-lang="en" style="display:none;">
-                {% assign post_id = post.date | date: "%Y-%m-%d" | append: "-" | append: post.title | slugify %}
-                {% if site.data.translations[post_id].subtitle %}
-                    {{ site.data.translations[post_id].subtitle }}
-                {% else %}
-                    {{ post.subtitle-en | default: post.subtitle }}
-                {% endif %}
-            </span>
+            <span class="lang-content" data-lang="en" style="display:none;">{{ post.subtitle-en | default: post.subtitle }}</span>
         </h3>
         {% endif %}
         <div class="post-content-preview">
@@ -39,8 +25,6 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
                 {% assign post_id = post.date | date: "%Y-%m-%d" | append: "-" | append: post.title | slugify %}
                 {% if site.data.translations[post_id].content %}
                     {{ site.data.translations[post_id].content | strip_html | truncate:200 }}
-                {% elsif post.content-en %}
-                    {{ post.content-en | strip_html | truncate:200 }}
                 {% else %}
                     {{ post.content | strip_html | truncate:200 }}
                 {% endif %}
