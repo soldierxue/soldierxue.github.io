@@ -8,7 +8,7 @@
 
 # 最新的三篇文章已经在文件中添加了双语支持，这里不需要重复
 
-# 示例文章翻译
+# 最新文章翻译
 "2020-02-15-Netflix 最后一公里内容交付":
   title: "Netflix's Last Mile Content Delivery"
   subtitle: "How Netflix optimizes content delivery to users"
@@ -137,3 +137,626 @@ tag_translations:
   时序数据: "Time Series Data"
   S3: "S3"
   对象存储: "Object Storage"
+"2024-11-19-从 S-Team 读懂亚马逊组织架构":
+  content: |
+    Today we're going to explore Amazon's management team organizational structure. From public financial reports, we know that Amazon, as a public company, has a Board of Directors, an Executive team, and the mysterious S-Team. How do these three entities position themselves, collaborate, and steer the development of a global company with 1.5 million employees and a $2 trillion market value?
+
+    ## Amazon's Business Units and Functional Departments
+
+    Amazon's main revenue comes from selling various products and services to customers, primarily from online and offline retail businesses and AWS cloud services. Amazon disclosed the following six major product or service revenues on pages 55-56 of its 2023 annual report:
+
+    - Retail business (1) - We offer products to consumers through online (1.1) and physical (1.2) stores. Revenue is recognized when control of goods transfers to customers, typically occurring when we deliver goods to third-party carriers or directly to customers via Amazon's own delivery services.
+    - Third-party seller services (2) - We provide sellers with the ability to sell products in our stores and use our services to fulfill orders. In these transactions, we are not the seller of record. Commissions earned from these arrangements and any related fulfillment and shipping fee revenue are recognized when the service is provided, typically when the related product is delivered to a third-party carrier or directly to customers via Amazon's own delivery services.
+    - Advertising services (3) - We provide advertising services to sellers, vendors, publishers, authors, and others through programs such as sponsored ads, display ads, and video ads. Revenue is recognized when ads are delivered based on the number of clicks or impressions.
+    - Subscription services (4) - Our subscription sales include fees associated with Amazon Prime memberships and access to digital video, audiobooks, digital music, e-books, and other non-AWS subscription service content. Prime membership provides customers with a continually upgrading set of benefits and represents a single stand-ready obligation. Subscription fees are paid in advance of or during the delivery of services. Revenue from such arrangements is recognized over the subscription period.
+    - AWS (5) - Our AWS arrangements include global sales of compute, storage, database, and other services. Revenue is allocated to each service based on its standalone selling price and primarily recognized when customers use these services based on the quantity of services rendered (such as compute or storage capacity delivered on demand). Some services (including compute and database) are also offered for a fixed quantity over a specified term, with revenue recognized proportionally over this term. Sales commissions associated with contracts longer than one year are capitalized and amortized over the contract term.
+    - Other (6) - Other revenue includes sales related to various other products, such as certain licensing and distribution of video content, healthcare services, and transportation services, as well as our co-branded credit card agreements. Revenue is recognized when content is licensed or distributed, and when services are fulfilled.
+
+    In addition to business units, there are also functional departments such as CSO, CFO, HR, compliance and legal, etc. Amazon conducts business globally and deeply understands that user preferences vary by region, so these business units are also divided by region. Therefore, Amazon's organizational structure is layered, with various business units operating relatively independently, divided by function and geographic region. Amazon expects to be as agile and innovative as startups when facing customers, with rapid iteration. Amazon has formed a unique management team structure that is both functional and hierarchical through its Board of Directors, Executive team, and S-Team.
+
+    ## Board of Directors
+
+    ![Board of Directors]({{site.image-srv}}/img/20241119/49b99aa7ecd129221754510916b3baad.png)
+
+    As of January 24, 2024, Amazon's Board of Directors includes 12 members. Apart from Jassy and Bezos, all are directors from corporations and academic institutions who represent shareholder interests, oversee company operations, but do not participate in day-to-day operations. They are responsible for major decisions such as appointing and dismissing the CEO. Board members are typically elected and appointed by shareholders.
+
+    ## Executive Team
+
+    ![Executive Team]({{site.image-srv}}/img/20241119/4551f452da48b8bb6e0f203a786c4929.png)
+
+    The Executive team includes roles such as CEO, CFO, etc., who are responsible for the company's daily operations and management, executing strategies formulated by the Board and S-Team. Executive team membership is fluid, with some executives simultaneously serving as S-Team members or Board members, ensuring that strategic decisions made by the S-Team align with the Board's overall vision for the company. Amazon's Executive team has fewer members than the Board, selected based on experience and capability.
+
+    ## S-Team (Senior Leadership Team)
+
+    ![S-Team]({{site.image-srv}}/img/20241119/49ed1e138573a2203758c5ca680b5858.png)
+
+    Amazon's Senior Leadership Team, known as S-Team, is responsible for setting goals and strategies, shaping company culture, and handling crises. S-Team members typically have worked at Amazon for many years and come from core business units such as AWS, global store operations, etc. S-Team members are directly appointed by the CEO.
+
+    In November 2024, Amazon's official website updated the latest 29-member S-Team. The S-Team meets regularly with the CEO to discuss and formulate major company decisions. The S-Team is a management organization unique to Amazon, designed to reduce hierarchical layers and maintain agility and innovation, serving as a supplement and extension beyond the traditional Board and Executive team.
+
+    From the image above, we can see that S-Team members primarily come from Worldwide Amazon Stores (formerly the global consumer business) and AWS cloud computing, with 8 and 7 members respectively. Besides these two core businesses, Zoox (autonomous driving) and AGI, which have significant future impact, have also been nominated to the S-Team for the first time. Let's learn more about these business units and management teams.
+
+    ### Worldwide Amazon Stores CEO - Doug Herrington
+
+    Worldwide Amazon Stores, formerly known as the global consumer business, is a core business unit of Amazon responsible for managing and operating Amazon's global e-commerce platform.
+"2024-11-11-是该提升开发人员体验 - Amazon Software Builder Experience 团队":
+  content: |
+    Amazon is committed to improving the builder experience, using data-driven methods to enhance employee productivity and satisfaction.
+
+    ![Developer Experience]({{site.image-srv}}/img/20241111/1a398ea5e0273b9becfc148b1cbaa237.png)
+
+    Back in 2022, Business Insider reported that Amazon CEO Andy created a new department called Amazon Software Builder Experience (ASBX) to address "fundamental pain points" raised by developers. Builders or developers are core assets and fighting force for many tech giants. While we've always talked about DevOps integrating development and operations, Amazon has been one of the exemplary companies successfully implementing DevOps culture, mechanisms, and tools. So why establish this horizontal ASBX department in 2022? What challenges does Amazon face in builder experience? And what new opportunities does GenAI bring to developer experience?
+
+    ## 2022 Internal Technology Ecosystem and Status
+
+    https://www.aboutamazon.com/news/workplace/new-amazon-employee-experience-survey
+
+    In 2022, shortly after its establishment, ASBX took over the internal annual technology survey and results analysis, which was disclosed on the About Amazon website. This annual technology survey is sent to all Amazon technical employees to understand and collect feedback on various aspects of their daily work. Let's look at the 2022 results summary:
+
+    1. Highlights from the 2022 technology survey include:
+       
+       - High scores for employee satisfaction (86%) and recommending Amazon as a workplace (81%)
+       - 91% felt encouraged to share ideas
+       - 74% were confident about achieving their career goals at Amazon
+       - 85% reported that managers seek diverse opinions when making decisions
+       - 86% said teams are doing the right things for customers, with 75% reporting they're truly innovating for customers
+
+    2. Areas needing improvement:
+       
+       - 5% of respondents considered leaving Amazon within the next six months, with half citing **base salary** as the primary factor
+       - 22% of developers reported that bug fixes frequently interrupt their work
+       - 34% of engineers spend 4-8 hours weekly on non-differentiating work
+       - 0-20% of engineers' time is spent on non-product building tasks
+       - 30% of engineers' time is spent on repetitive tasks
+       - Insufficient compatibility between internal tools and open-source tools, and inadequate observability tools
+
+    3. Improvements being made by the ASBX team (established in February 2022) include:
+       
+       - Automatically resolving 20% of Blocked Software Issues, where development teams must wait for urgent important deployments to complete before executing their own deployments
+       - Launching cross-team Pipeline Efficiency Dashboard
+       - Improving SIM Ticketing search functionality
+       - Centrally managing the upgrade of Amazon Linux 2 on 1.8 million machines
+       - Reducing Apollo deployment time for large clusters by 75%
+
+    ## What is the ASBX Team's Mission?
+
+    https://www.businessinsider.com/amazon-builder-experience-team-uses-these-6-guiding-principles-2022-9
+
+    According to Business Insider, the **"Amazon Software Builder Experience" (ASBX)** team started with over 400 people, aiming to address **engineers'** dissatisfaction and foster a better **"builder/developer"** culture. Many internal developers complained that work had become increasingly repetitive and mundane, hindering them from engaging in more creative activities. The goal is to make Amazon "the best employer for software builders on Earth."
+
+    To achieve this goal, the ASBX team established **6 guiding principles** as core values (tenets) for making key decisions:
+
+    - Provide consistent, interoperable, and scalable tools
+    - Eliminate non-differentiating work through automation
+    - Ensure tools work even during the worst times
+    - Continuously improve software builder experience through metrics, actionable insights, and knowledge sharing
+    - Provide industry-leading technology and top expert resources to promote learning and growth
+    - Encode Amazon's values into the technical foundation, fostering an inclusive culture
+
+    These principles aim to improve Amazon engineers' work experience, increase efficiency, and promote innovation.
+
+    Known work includes but is not limited to:
+
+    - Developing and implementing solutions like Amazon Q to improve developer efficiency
+    - Utilizing Retrieval-Augmented Generation (RAG) technology combined with Amazon's knowledge base to provide developers with quick, accurate answers
+    - Importing internal knowledge bases into Amazon Q Business through S3 connectors
+    - Preprocessing documents and enriching metadata to improve retrieval efficiency
+
+    ## What Improvements Were Made in 2023?
+
+    Through feedback from the 2023 technology survey disclosed by ASBX, we can summarize the results after a year of effort:
+
+    - Builders reported a 15% average reduction in time spent on non-critical tasks
+    - 10% reduction in average blocking time due to failed tests
+    - Over 30% decrease in Pipeline operator interventions (a metric measuring how often you need to manually resolve deployment Pipeline blockages)
+    - Over 20% reduction in company-wide sev2 tickets
+
+    The ASBX team introduced new benchmarking tools to help managers analyze data more effectively. This year, they further improved these tools, making them available to everyone, and introduced a new benchmark scoring system for more relevant team comparisons.
+
+    ## The Generative AI Wave is Surging
+
+    ![GenAI Wave]({{site.image-srv}}/img/20241111/053a1ed993cf35b4f0d4907382b6bfae.png)
+
+    GenAI-assisted development is currently a scenario with broad prospects, including Microsoft Copilot, Amazon Q Developer, Gemini Code Assist from major tech companies, and many startups like Cursor AI, all focusing on improving developer experience. The following table compares the differences between Q Developer and CoPilot, highlighting the different focus areas of these products:
+
+    | Area/Use Case | Amazon Q Developer | GitHub CoPilot |
+    | --- | --- | --- |
+    | Pricing | Free tier with no time limit; Q Professional at $19 per user per month | GitHub CoPilot Business ($19 per user per month) may lack feature development and security scanning |
+    | End-to-end feature development and SDLC | Built-in, providing value across the entire SDLC for all software development roles, not just coders; generates production-ready code from high-level descriptions | Not applicable (private technology preview) |
+    | Code transformation | Yes (free and professional tiers); using Q Agent for Code Transformation (Java available, .Net announced) | Not applicable |
+    | Security scanning | ✅ Natively includes Java, JavaScript, Python, etc. ✅ Customizable security scanning | ❌ Not included - requires GitHub Advanced Security |
+    | AWS service knowledge and integration | ✅ Deeply integrated with AWS platform, drawing on Amazon's 17 years of AWS best practices - built on Bedrock ✅ Guides selection of the right AWS services, optimal configuration, and troubleshooting service-related issues | ❌ No native AWS-specific expertise |
+    | Conversational capability | ✅ Natural language interaction, answering architectural questions, drafting support cases, supporting explanations | ❌ Not natively included, may require CoPilot for Azure |
+
+    https://dev.to/aws-builders/how-amazon-q-stands-out-a-comparison-with-microsoft-copilot-and-google-gemini-1bj
+
+    Q Developer has a unique **code transformation** capability that helps teams leverage LLM to automate upgrading Java applications and .Net (.NET Framework to cross-platform .NET, coming soon). ASBX also uses Q Developer internally to build automation tools helping teams upgrade to Java 17. Traditional methods would require 50 engineer-days, while upgrading a Java project with Q Developer takes only a few hours. Within 6 months, ASBX team's tools helped upgrade over 50% of production Java systems. Amazon developers directly delivered 79% of automatically generated code review results without any additional changes. This upgrade helped the company improve efficiency equivalent to saving $260 million in costs, as detailed in Andy's published information:
+
+    https://www.linkedin.com/posts/andy-jassy-8b1615_one-of-the-most-tedious-but-critical-tasks-activity-7232374162185461760-AdSz/?utm_source%3Dshare%26utm_medium%3Dmember_ios
+
+    Besides Amazon itself, another publicly known code transformation case is Latin American technology company Novacomp: "*Using Amazon Q Developer, Novacomp upgraded a project with over 10,000 lines of Java code in just 50 minutes, compared to an estimated 3 weeks. The company also simplified developers' daily tasks, reduced technical debt by an average of 60%, and helped customers significantly improve their security posture and save related costs.*"
+
+    Do you believe large language models can be integrated into every aspect of the SDLC on a large scale? I think we probably still need more pioneers to give everyone more confidence and demonstrations. Personally, though, I believe the future is already here. We need to learn new tools and get accustomed to large language models assisting, improving efficiency, and enhancing experience at every stage of the SDLC.
+
+    To learn more about the application of large language models in code development, you can refer to a research report prepared for KDD 2024: "Reasoning and planning with large language models in code development (survey for KDD 2024 tutorial)"
+
+    ![LLM in Code Development]({{site.image-srv}}/img/20241111/7bc60d42553f5a537d82907e37c2f18a.png)
+
+    ---
+
+    References:
+    - https://careers.wct-fct.com/companies/amazon-3-60ad394d-c673-4474-9694-344b0cae748f/jobs/41486418-software-development-engineer-amazon-software-builder-experience-asbx
+    - https://gradle.com/blog/advice-for-andy-jassy-addressing-amazons-mammoth-developer-experience-challenge/
+    - https://www.aboutamazon.com/news/workplace/amazons-annual-tech-survey-results-now-available
+"2024-11-06-大模型全程帮忙操作电脑和分析2024Q3亚马逊财报":
+  content: |
+    ![AI Analyzing Financial Reports]({{site.image-srv}}/img/20241106/a34b24de6a39a796f30ecd79d63a201c.png)
+
+    I asked the large language model three questions, and it automatically controlled the computer to help me complete an analysis summary of Amazon's Q3 2024 financial report:
+
+    ## Q1: Carefully analyze the cash flow statement data in Amazon's Q3 2024 report and provide your insights
+
+    From Amazon's third quarter 2024 financial report cash flow statement data, I can provide the following key analysis and insights:
+
+    1. Operating cash flow has significantly improved:
+
+    - Operating cash flow for the past 12 months reached $112.7 billion, up 57% from $71.7 billion in the same period last year
+    - Free cash flow (FCF) reached $47.7 billion, up 123% from $21.4 billion in the same period last year
+    - Free cash flow less principal repayments of finance leases and financing obligations was $44.9 billion, up 182% from $15.9 billion in the same period last year
+
+    2. Net income and operational efficiency improvements:
+
+    - Third quarter net income was $15.328 billion, up 55% from $9.879 billion in the same period last year
+    - Operating income reached $17.4 billion, up 55% from $11.2 billion in the same period last year
+
+    3. Cash flow composition analysis: Key contributing factors include:
+
+    - Depreciation and amortization costs: $13.442 billion, reflecting the company's continued infrastructure investment
+    - Stock-based compensation: $5.333 billion, slightly lower than $5.829 billion in the same period last year
+    - Working capital changes:
+        - Inventory increased by $1.509 billion, reflecting seasonal stocking
+        - Net accounts receivable decreased by $701 million, showing good collection management
+        - Other assets increased by $4.537 billion
+        - Accounts payable decreased by $477 million
+
+    4. Financial health analysis:
+
+    - The significant improvement in cash flow indicates enhanced operational efficiency
+    - The substantial growth in free cash flow reflects the company's strong cash generation capability
+    - Operating cash flow growth outpacing revenue growth indicates operational leverage effects
+
+    5. Strategic implications:
+
+    - Strong cash flow provides the company with ample investment capacity
+    - Can support continued investment in areas such as AWS, AI, and logistics infrastructure
+    - Provides sufficient financial resources to address market competition and technological innovation
+
+    6. Future outlook:
+
+    - The company expects fourth quarter revenue to be between $181.5-188.5 billion, representing year-over-year growth of 7-11%
+    - Operating profit is expected to be between $16.0-20.0 billion, higher than $13.2 billion in the same period last year
+    - Robust cash flow will continue to support the company's growth strategy and market expansion
+
+    Overall, Amazon's cash flow situation has improved significantly, reflecting notable progress in operational efficiency, cost control, and revenue growth. Strong cash generation capability provides a solid foundation for the company's continued development and strategic investments. In particular, the good performance of AWS and e-commerce businesses, as well as improved operational efficiency, all contribute to this positive result.
+
+    ## Q2: How about capital expenditure?
+
+    Let me analyze Amazon's capital expenditure (CAPEX) in detail:
+
+    1. Total capital expenditure:
+
+    - Capital expenditure (purchase of property and equipment) for Q3 2024 was $22.620 billion
+    - Compared to $12.479 billion in Q3 2023, an increase of approximately 81.3%
+    - Cumulative capital expenditure for the first 9 months reached $55.165 billion, up about 44.6% from $38.141 billion in the same period of 2023
+
+    2. Capital expenditure composition: The following related items can be seen from the cash flow statement:
+
+    - Direct purchases of property and equipment
+    - Property and equipment acquired under finance leases:
+        - $186 million this quarter, basically flat compared to $183 million in the same period last year
+        - Cumulative $409 million for the first 9 months, slightly down from $431 million in the same period last year
+
+    3. Capital expenditure subsidies:
+
+    - Revenue from property and equipment sales and incentive measures this quarter was $1.342 billion
+    - Year-over-year increase of 13.6% (compared to $1.181 billion in the same period of 2023)
+    - These incentives partially offset capital expenditure cash outflows
+
+    4. Capital intensity analysis:
+
+    - Capital expenditure to revenue ratio: approximately 14.2% ($22.620 billion/$158.9 billion)
+    - This ratio has increased significantly compared to the same period last year (approximately 8.7%), indicating that the company has increased capital investment
+
+    5. Investment direction: According to information disclosed in the financial report, major capital expenditures are used for:
+
+    - AWS infrastructure expansion (including new data centers and server equipment)
+    - Logistics network expansion and modernization
+    - Technology infrastructure upgrades
+    - New office facilities and warehouse facilities
+
+    6. Capital efficiency analysis:
+
+    - Return on capital: Combined with operating profit of $17.4 billion, the efficiency of current capital expenditure remains at a reasonable level
+    - Investment return cycle: Considering that most investments are used for AWS and logistics networks, these investments typically take 2-3 years to fully realize benefits
+
+    Main observations and insights:
+
+    1. Investment acceleration:
+
+    - The significant growth in capital expenditure indicates that Amazon is increasing infrastructure investment
+    - This level of investment reflects the company's confidence in future growth, especially in AWS and logistics networks
+
+    2. Strategic layout:
+
+    - Large-scale capital expenditure is mainly concentrated in core business areas
+    - Focus on investing in cloud computing infrastructure shows the company continues to be optimistic about AWS growth prospects
+    - Logistics network investment helps improve delivery efficiency and user experience
+
+    3. Financial impact:
+
+    - Despite increased capital expenditure, the company maintains strong cash flow
+    - Increased capital expenditure may affect free cash flow in the short term, but should enhance operational efficiency and competitiveness in the long term
+
+    4. Risk considerations:
+
+    - Large-scale capital expenditure increases financial risk
+    - Need to closely monitor the return on these investments
+    - If the economic environment deteriorates, investment pace may need adjustment
+
+    5. Future outlook:
+
+    - Based on current investment trends, capital expenditure is expected to remain at relatively high levels in the coming quarters
+    - These investments will lay the foundation for the company's long-term growth
+    - Need to focus on investment efficiency and realization of returns
+
+    Overall, although Amazon's capital expenditure has increased significantly, the growth is targeted, mainly directed toward building core competitiveness and future growth opportunities. Considering the company's strong cash flow and market position, this level of investment is sustainable and likely to bring good returns in the future. However, it is also necessary to continue monitoring capital efficiency and the realization of investment returns.
+
+    ## Q3: How has Amazon AWS grown in the last 12 months? Is it sustainable?
+
+    Let me analyze AWS's recent growth:
+
+    1. Revenue growth analysis: Third quarter of 2024:
+
+    - AWS revenue reached $27.5 billion
+    - Year-over-year growth of 19% ($23.1 billion in 2023Q3)
+    - Accounts for 17.3% of Amazon's total revenue
+
+    AWS revenue growth for the last four quarters:
+
+    - 2024 Q3: 19%
+    - 2024 Q2: 16%
+    - 2024 Q1: 14%
+    - 2023 Q4: 13%
+
+    2. Profitability:
+
+    - Q3 2024 operating profit reached $10.4 billion
+    - Year-over-year growth of 49% ($7.0 billion in 2023Q3)
+    - Operating profit margin reached 37.8%, higher than 30.3% in the same period last year
+    - AWS contributed nearly 60% of Amazon's total operating profit
+
+    3. Growth drivers:
+
+    a) Internal advantages:
+
+    - Continuous technological innovation, especially in AI and machine learning
+    - Constantly expanding service portfolio
+    - Strong infrastructure and global data center network
+    - Deep cooperation relationships with major enterprise customers
+
+    b) External opportunities:
+
+    - Accelerated enterprise digital transformation
+    - Rapid growth of AI applications driving computing power demand
+    - Popularization of hybrid cloud strategies
+    - Growing cloud computing demand in emerging markets
+
+    4. Competitive situation:
+
+    - Maintains leading position in the cloud computing market
+    - Main competitors are Microsoft Azure and Google Cloud
+    - Intensified competition in AI infrastructure and services
+    - Strengthening AI competitiveness through strategic partnerships (such as with Anthropic)
+
+    5. Growth sustainability analysis:
+
+    Positive factors:
+
+    a) Market space:
+
+    - Global cloud computing market continues to grow rapidly
+    - Trend of enterprise IT spending shifting to cloud continues
+    - AI/ML applications bring new growth opportunities
+    - Huge potential in emerging markets
+
+    b) Competitive advantages:
+
+    - Continued technological leadership
+    - Obvious economies of scale
+    - High customer stickiness
+    - Continuous innovation capability
+
+    c) Financial strength:
+
+    - Strong cash flow supports continued investment
+    - High profit margins provide pricing flexibility
+    - Good return on investment
+
+    Potential challenges:
+
+    a) Market risks:
+
+    - Intensified competition may affect profit margins
+    - Changes in economic environment may affect enterprise IT spending
+    - Regulatory environment uncertainty
+
+    b) Technology risks:
+
+    - Uncertainties brought by AI technology innovation
+    - Security and privacy challenges
+    - Need for continued large-scale capital investment
+
+    c) Operational risks:
+
+    - Intensified talent competition
+    - Rising supply chain and energy costs
+    - Geopolitical factors
+
+    6. Future outlook:
+
+    Short-term (1-2 years):
+
+    - Revenue growth rate expected to remain in the 15-20% range
+    - AI-related services will become important growth points
+    - Profit margins may fluctuate slightly due to competition and investment
+
+    Medium to long-term (3-5 years):
+
+    - Market space remains huge
+    - New technologies and application scenarios will bring new opportunities
+    - Need to continuously monitor changes in competitive landscape
+
+    Conclusion:
+
+    1. Positive growth trend:
+
+    - AWS shows signs of accelerating growth
+    - Profitability remains strong
+    - Market position is stable
+
+    2. Strong sustainability:
+
+    - Ample market space
+    - Obvious competitive advantages
+    - Continued innovation capability
+
+    3. Risks to monitor:
+
+    - Intensified competition
+    - Technological changes
+    - Macroeconomic environment
+
+    4. Overall assessment: AWS's growth has strong sustainability, mainly based on:
+
+    - Continued expansion of the cloud computing market
+    - The company's technological and market leadership
+    - New opportunities brought by the AI wave
+    - Sound financial condition and continued innovation investment
+
+    Recommendations for continued monitoring:
+
+    - AI technology development and competitive situation
+    - Enterprise IT spending trends
+    - Regulatory environment changes
+    - Emerging market expansion
+
+    Overall, despite facing some challenges, AWS's growth momentum remains strong and has good sustainability. The company's strategic layout and continued innovation in the AI era will be key to maintaining growth.
+
+    ---
+
+    The above is built based on the official demonstration of Anthropics' latest Claude3 Computer Use functionality. Recently I've been busy (of course that's an excuse) and have had less desire to write. These days I've been inspired by colleagues around me asking if AI models can help! After searching around, I found that the AI model has released a new Computer Use Agent that is exaggerated to be able to control computers/phones to automatically complete many operations!!!
+
+    I couldn't resist trying it, and it's really good. Agent + Tools, perfectly "replacing simple repetitive tasks." For example, financial report analysis is something that needs to be done every quarter, so why not use AI models to help? What's the principle?
+
+    The large language model accepts your input and understands the goal you want to accomplish. The system role setting (System Prompt) is as follows: "You have a virtual Ubuntu machine with internet access. You can freely install Ubuntu command-line tools, use the Firefox browser. If command-line tool inputs are too long, please save to local temporary files for subsequent operations. When browsing a webpage, note that you need to zoom or scroll down to see the entire page content. Try to combine multiple tool call requests into one call when possible. If viewing a PDF file, please download and convert it using the pdftotext tool, and use StrReplaceEditTool for editing and viewing."
+
+    Anthropics' demonstration provides a Ubuntu Dockerfile, which is the execution environment that the tool itself depends on. The tools involve computer-related operations such as mouse movement, clicking, screen capture, etc., a command-line tool to execute specific commands and return results, and a text viewing and editing tool. Combined with the model's own understanding ability, it judges what tools to call in what order, mainly by using screenshots to determine the current state, using the browser to find information, and then using the command line and text editing to analyze content.
+"2021-01-10-私房菜-2021云技术趋势":
+  content: |
+    I've been continuously digesting the 2020 AWS reinvent feast that just ended last month, and found that in-depth technical interpretations are sometimes not suitable for the "casual" curiosity of social media. People are more willing to discuss technology trends, even though predictions are usually unreliable. As a frontline warrior who has been in the cloud computing industry for nearly 5 years, I'd like to chat with you about cloud computing technology trends, just as after-dinner conversation!
+
+    # Amazon CTO's Predictions
+
+    Amazon AWS cloud computing officially released an article featuring predictions from industry veteran Amazon CTO Werner: ["Eight Technology Trends That Will Change the World in 2021"](https://mp.weixin.qq.com/s/lSIxzTwr3X0aDk8OAcHYdA). First, the cloud will accelerate its push to the edge, with cloud + edge + endpoint being ubiquitous, surrounding us everywhere, such as autonomous driving, cloud gaming, video interaction, and more. In 2021, AWS plans to launch 12 Local Zones covering major US cities, while last year's industry-shaking Outposts will evolve from 42U racks that can only be deployed in data centers to new 2U/1U servers. Without needing much space, you can connect discrete information silos to the cloud. For more traditional "IDCs," this year also saw the release of EKS/ECS Everywhere to simplify the complexity of running container platforms across multiple data centers. Meanwhile, Wavelength, which integrates with carriers' 5G networks, has expanded to South Korea (South Korea's SK Telecom) and Japan (Japanese telco KDDI).
+"2020-12-02-新篇章-强一致性的对象存储":
+  content: |
+    From the launch of the first cloud service object storage service Amazon S3 in 2006 until December 1, 2020, S3 object operations followed the **"eventual consistency"** principle. Object storage service itself is a complex distributed system that exposes simple API service interfaces to users, with unlimited storage expansion and extremely high data durability (standard storage maintains multiple redundant copies across multiple availability zones in a region). Object storage services have become the most important reliable "data container" in the era of data and intelligence. Whether it's AWS's own data lake solutions or new cloud data warehouse-as-a-service products like Snowflake, they have all chosen S3 as their data storage backend.
+
+    # Data Consistency
+
+    The CAP theorem, published around 2000, states that you can choose at most two out of three: data consistency, high availability, and partition tolerance. In a large-scale distributed system, network partitions are inevitable, so achieving both high availability and data consistency is a significant challenge. This leads to two choices: either sacrifice some data consistency to ensure system availability when network partitions occur, or prioritize data consistency at the expense of system availability. Eventual consistency is a balance achieved in large-scale scalable distributed systems between system availability and data consistency.
+"2020-12-06-云原生应用的开发和部署":
+  content: |
+    In the cloud-native technology ecosystem, customers face various challenges when implementing microservice projects. A typical requirement is how to organically integrate cloud services needed for business development, open-source solutions, and even commercial SaaS products, optimize collaboration efficiency among enterprise developers, while ensuring security, high performance, and high availability. Therefore, during DevOps construction, almost every enterprise hopes to build its own **Platform as a Service (PaaS)** to accelerate business development efficiency, consolidate enterprise technical best practices, and reduce costs and operational workload.
+
+    From an application infrastructure perspective, containers and serverless are increasingly mature and becoming the first choice for enterprises. However, as the number of services increases, service governance needs become more important, such as service registration and discovery, service routing, rate limiting and circuit breaking, monitoring and logging, elastic scaling, lane isolation (reducing blast radius), and more. In the early days when Netflix implemented cloud-native transformation on AWS, the AWS platform lacked these necessary service governance managed services. The Netflix team built a set of self-developed open-source service governance components based on AWS, including Eureka, Ribbon, Zuul, Hystrix, Titus, Spinnaker, etc. These components were deployed on Amazon EC2 and Elastic Scaling Groups (ASG) to build highly available and elastic service components. Today, more enterprises choose to build their own PaaS platforms based on containers, but for developers, the container platform alone is not enough to satisfy the software delivery value flywheel, from code to online highly reliable, elastic, high-performance, secure business services.
+
+    ![Intuit MSaaS]({{site.image-srv}}/img/20201206/1.png)
+"2020-02-15-Netflix 最后一公里内容交付":
+  content: |
+    # Disclaimer
+
+    _All articles on this site represent personal thoughts only, not the position of any company. All data comes from public information._
+
+    *Please indicate the source when reposting*
+
+    The company has notified us to stay at home for another **14** days. Going on like this, it will soon be exposed that everyone not going to the office isn't such a big deal. Will fixed workstations be completely eliminated in the future to save costs? Changes come unexpectedly.
+
+    Staying at home, I don't even have the energy to scroll through social media. Influenced by team culture, I quickly grab some time to enrich myself. Various documentaries and unfinished books on Kindle are definitely must-haves for homebodies. Thanks to Netflix, popular original series like "House of Cards," "Narcos," "Orange Is the New Black," "The Get Down," and others give us another option during boring times at home.
+
+    Before the New Year, listening to Professor Fei's enthusiastic chat, I discovered he is both a tech enthusiast and an experienced Netflix user. Regarding Netflix's technology, I've been focusing more on the AWS platform level. With the professor's hint, I learned that to solve the last-mile content delivery challenge for global users, Netflix actually abandoned popular third-party CDN services and was determined to build their own efficient and economical system to please Netflix end users. In this article, we'll explore Netflix's self-built and self-used content delivery network - the Open Connect solution.
+
+    [Translation to be completed...]
+"2020-02-22-玩直播，如何构建一套自己的直播平台？":
+  content: |
+    # Disclaimer
+
+    _All articles on this site represent personal thoughts only, not the position of any company. All data comes from public information._
+
+    *Please indicate the source when reposting*
+
+    This is the second article on live streaming platform technology. In the first article ["Talking About Live Streaming: Knowledge Points You Must Know"](https://mp.weixin.qq.com/s?__biz=MzU3Mzg1Njk0Ng==&mid=2247484185&idx=1&sn=80941e0542fe7882493a36d2b9234173&chksm=fd3a0ec4ca4d87d2cb875379d35ab198190eb2d0c6ec1989cd1427d6b29e85d2261769e5fc00&token=1392326001&lang=zh_CN#rd), we gained a basic understanding of live streaming architecture and common terminology. Some friends have asked: I want to build my own live streaming platform, how should I go about it?
+
+    Indeed, theory without practice feels shallow. Out of curiosity, let's try together to see how we can build a live streaming platform using open-source solutions and cloud platforms.
+
+    # Preparation
+
+    To implement the following live streaming architecture, what tools do we need to prepare?
+
+    ![LiveStreming Demo Preparation?]({{site.image-srv}}/img/20200222/1.png)
+
+    [Translation to be completed...]
+"2020-02-19-聊直播，这些知识点你必须要懂":
+  content: |
+    # Disclaimer
+
+    _All articles on this site represent personal thoughts only, not the position of any company. All data comes from public information._
+
+    *Please indicate the source when reposting*
+
+    In this article, we'll discuss live streaming technology. When I first started in this field, I found many "jargon" and terminology. For an architect, inefficient communication due to inconsistent language is the most painful thing, meaning you simply cannot understand the client's language. Today, let's educate ourselves on some key knowledge points and basic scenario understanding.
+
+    # How is live streaming different from video-on-demand?
+
+    Video-on-demand (VOD) refers to video files that are already stored and users can play them anytime, anywhere. The player progress can be controlled by the customer, such as starting from the beginning, from the last viewing time point, fast-forwarding, etc. There are many VOD platforms, such as iQiyi and Tencent Video in China, and YouTube and Netflix internationally.
+
+    Live streaming is typically initiated in real-time by one party, such as a host. Since it's happening in real-time, the player doesn't have a progress bar. The live stream can be delivered to the end customer either through push streaming or pull streaming. Let's look at some live streaming scenarios.
+
+    The main components of live streaming include _capture, encoding, pushing, transcoding, distribution, pulling, decoding, and rendering_.
+
+    [Translation to be completed...]
+"2020-07-12-微服务和事件驱动":
+  content: |
+    I've been fascinated by the "event" domain recently. In the article "Rethinking Event-Driven Architecture," I gained a new understanding of the meaning of "events" themselves and common event-driven paradigms. Then in "How Microservices Align with Business Architecture," we learned from a business architecture perspective about the tremendous value of "domain events" and domain services in microservice architecture and implementation. This article continues to explore the question: Is event sourcing the inevitable path for event-driven architecture? What are the difficulties in implementing an event sourcing architecture? Can we have a real customer case?
+
+    # Event-Driven and FaaS/Microservices
+
+    In the cloud-native world, microservice architecture has become a de facto standard. The emergence of microservices meets the initial rapid development needs of development teams, while also satisfying the continuously expanding user scale as business grows. AWS Lambda function computing has once again made everyone start to pay attention to serverless architecture for microservices. FaaS or serverless computing is an advanced form of cloud services empowering developers, elevating directly from underlying resources (virtual machines, containers) to application interfaces:
+
+    * **Truly on-demand**, function computing achieves a billing model based on interface requests, where users don't pay for idle system waiting time
+    * **Application-oriented**, no need to rely on service frameworks introduced by developers to implement microservices; the "service of services" requirements are managed by cloud services, and developers only need to focus on business logic. Meanwhile, elastic scaling, monitoring, logging, orchestration, authorization, and authentication needed by services are all consolidated at the platform layer for support.
+
+    Function computing and event-driven architecture are closely linked together. Therefore, when examining major vendors providing function computing, the first thing to investigate is whether the range of supported **"event sources"** is broad enough. So what are the application scenarios for event-driven function computing microservices?
+
+    [Translation to be completed...]
+"2020-07-05-微服务如何对齐业务架构":
+  content: |
+    As developers and architects, we are often confused about business architecture, or how to map business to microservice implementation. In the traditional model, business analysts (BAs) conduct business-related research and analysis, delivering requirement analysis documents to the development team for subsequent iterative development. In today's business agile innovation based on cloud infrastructure, the better the collaboration from business to development to operations, the higher the overall efficiency and ability to respond to market changes. This makes the process of accepting market feedback and continuously iterating validation smoother. Whether positive or negative, feedback is the "good medicine" for meeting customer business iterations, greatly enhancing the team and enterprise's antifragility. Another common challenge is how to optimize and transform an existing monolithic application into microservices. Typically, such applications have existed for many years, have many dependencies, and no superhero knows all the details.
+
+    In either case, "business domain experts" re-organizing business vision and goals, and then business process reengineering, are key links in system evolution and transformation.
+
+    # What is Business Architecture?
+
+    > Business architecture is often not valued by developers, who tend to pursue new technologies. However, technology serves business. Well-designed business requires isolation and decoupling of business domains, and business domains and technical architecture also need to be decoupled.
+
+    The clear division of "technology is technology, business is business" seems a bit out of place in the digital and cloud computing era. Take Amazon AWS for example, why do we define AWS as a cloud for builders, entrepreneurs, and creators? Digital products are the most mainstream products of this era, and software and service delivery based on cloud services is the most widespread product development and iteration method today and in the future.
+
+    [Translation to be completed...]
+"2020-07-26-一个真实的事件溯源案例":
+  content: |
+    This is the third article exploring the "event" mechanism. In the first article, "Rethinking Event-Driven Architecture," we explained how to understand "events" themselves and common architectural paradigms. In the second article, "Microservices and Event-Driven," we discussed event-driven microservice application scenarios, especially the currently popular serverless architecture for event microservices. This article focuses on exploring a real case implementing the "event sourcing" pattern: Netflix's user video download scenario.
+
+    # Offline Viewing Business Background
+
+    As early as 2016, Netflix's internal team received customer feedback asking, "What if members could download and watch videos offline?" For the playback licensing team, this meant providing a new content licensing system that would allow member devices to download, store, and decrypt downloaded content for offline viewing. To do this securely required a new service to handle a complex set of yet-to-be-defined business rules, as well as new interfaces for client-server interaction. Additionally, while all existing Netflix systems were stateless, this service needed to be stateful.
+
+    In late November 2016, just 9 months after the proposal was made, the Netflix team successfully launched the new download feature, allowing all members worldwide to download and play videos on their mobile devices.
+
+    [Translation to be completed...]
+"2020-08-10-云原生企业——架构师视角的思考":
+  content: |
+    The article "Cloud-Native Era - Thoughts on Cloud-Native Trends from an Investor's Perspective" has recently been circulating in social media circles. Cloud-native, a term from the technology circle, has been given a detailed and vividly accessible interpretation by an investor. While reading it is quite enjoyable, as professionals in the cloud computing industry, we can't help but think: How do we view cloud-native trends? Where are the connection points between cloud-native and digital innovation? Which customers can benefit from cloud-native?
+
+    > Anything that cannot be technically verified is just bluffing; trying to rely on pure paper agreements to constrain and guide (processes) without more efficient technical means of supervision will easily become formalistic.
+
+    The reason cloud-native has been able to expand from the technology domain to the investment circle (business domain), in the author's view, is because in today's era, digitalization, data-driven approaches, and intelligence can help enterprises quickly align business goals with technical goals, accelerate market validation and feedback mechanisms, thereby enhancing the market competitiveness of enterprise products or services.
+
+    ![VUCA World]({{site.image-srv}}/img/20200810/3.png)
+
+    # VUCA World - The Age of Chaos
+
+    VUCA is an acronym for Volatility, Uncertainty, Complexity, and Ambiguity, a theory born in the leadership field. In the 1990s, the U.S. Army War College introduced the commonly used abbreviation "VUCA" to describe the new, constantly changing extreme conditions faced in Afghanistan and Iraq.
+
+    [Translation to be completed...]
+"2020-08-16-领导管理和执行——可复制的架构师领导力":
+  content: |
+    A while ago, out of curiosity, I discovered that there are dozens of different technical job titles on the company's recruitment site, and Amazon's fourteen leadership principles apply to all roles across the company. So how can these leadership principles be implemented and practiced in the cloud solutions architect role? To make it easily replicable, I try to combine the fourteen principles with three points: **"leadership, management, and execution,"** reminding myself to consciously reflect on which areas I'm spending time and creating value in different stages and customer scenarios.
+
+    # Leadership, Management, and Execution
+
+    These don't refer to three roles or positions in a company, but rather three leadership qualities. In the cloud solutions architect role, everyone needs to integrate these three qualities. The proportion of each quality varies in architect positions with different work scopes. The following figure represents my understanding:
+
+    ![Proportion of three qualities in different work scopes]({{site.image-srv}}/img/20200816/1.png)
+
+    # Execution
+
+    > The core of execution is delivering results
+
+    This is what we usually call working backward. Why is delivering results so important?
+
+    [Translation to be completed...]
+"2020-09-06-直播转码和视频文件转码优化之路":
+  content: |
+    For a customer with video-related business (live streaming or on-demand), CDN and transcoding are the two most resource-consuming technical costs. To this day, many online streaming media providers are still operating at a loss. Whether it's transcoding or CDN, it's essentially a trade-off, striking a balance between technical investment and user audiovisual experience. Earlier this year in the article "Talking About Live Streaming: Knowledge Points You Must Know," we quoted a live streaming triangle defined by Amazon Twitch platform's chief development engineer Yueshi Shen to define the relationship between user experience and OTT provider investment:
+
+    * **Scalability**: The number of online viewers that can be accommodated simultaneously, with the ability to elastically scale with the number of users
+    * **Low latency**: For example, the time from video publishing to reception, real-time interactive conversations, bullet screen interactions, etc., all require low latency
+    * **High Quality of Experience (QoE)**: Picture quality, which is extremely important in certain scenarios
+
+    AWS platform has online streaming media customers represented by Netflix. At the 2017 reinvent conference, the Netflix team revealed that at that time, the CPU consumed by transcoding accounted for as much as 70% of Netflix's total CPU resources, a scale of 300,000 cores. The Netflix team made considerable efforts in highly scalable, elastic, and low-cost transcoding tasks, with very significant results, achieving 92% cost savings. Netflix is a typical representative of large-scale file transcoding tasks.
+
+    [Translation to be completed...]
+"2020-09-28-在 AWS EMR 上使用 Spark 访问关系数据库":
+  content: |
+    Recently, I saw an article about how the Twilio team uses Spark to synchronize millions of API call records daily from MySQL to a data lake, supporting their users' ability to export historical call records. If a customer calls Twilio's API one million times a day, that's 365 million call logs in a year. The team ultimately adopted Spark and its column-value-based parallel query features to meet such a big data processing requirement.
+
+    From an architectural practice perspective, to solve such a problem—allowing customers to export accumulated API call logs at any time, with original logs stored in MySQL—what architectural choices are available?
+
+    - **Keep data in MySQL, query and export data from read replicas as needed;** For example, Amazon Athena's latest federated query supports querying multiple data sources, including MySQL with JDBC interface, DynamoDB, HBase, Redshift, Redis, etc.
+    - **Periodically synchronize MySQL data to a data lake;** For example, many Binlog-based CDC (Change Data Capture) solutions, AWS DMS, Canal/Debezium, and other tools; or data replication, such as using Spark to directly read data while processing in parallel to improve efficiency, or open-source tools like Sqoop.
+
+    This article starts from two points of curiosity: first, how to use Spark to handle JDBC-related operations, and second, how Spark parallelism works and its efficiency. Based on AWS, a series of hands-on practices were conducted:
+
+    * Building a Spark runtime environment, choosing the managed AWS EMR cluster, which is very mature, allows for a quick start, and can control experimental costs using spot instances
+    * Spark application development and debugging environment, with Jupyter Notebook being a good choice
+    * Spark JDBC related code development and execution, observing partition parallel execution
+
+    [Translation to be completed...]
+"2020-10-17-从 670亿美金市值的 Snowflake 看云数据仓库":
+  content: |
+    In September this year, Snowflake, a software newcomer founded in 2012 aiming to create a cloud-based elastic data warehouse SaaS, went public. As of October 16, its stock price was $242, with a market value of $67.6 billion. With the backing of Warren Buffett's second technology company investment, it continues to stimulate imagination and discussion about the development prospects of cloud data warehouses. So what's so exceptional about Snowflake that triggered a circuit breaker surge upon its IPO?
+
+    Snowflake is a cloud-native data warehouse service developed on the AWS platform. From Day One, the Snowflake team chose the public cloud as the underlying operating system to design and evolve their entire solution. Amazon's innovation culture is widely popular in the industry: _"Innovation comes in many forms and at all scales. The most radical and transformative innovations are those that enable others to unleash their creativity to pursue their dreams."_ Snowflake is certainly not the first innovation born in the cloud, nor will it be the last.
+
+    Many people in my social circle are also concerned and questioning how Amazon Redshift should respond to Snowflake's emergence. Before preparing this article, frankly, I didn't know how to answer such customer doubts either. Essentially, it's confusion about how to choose among so many data analytics products in the market. One article is far from enough to explain the hot data analytics products. This article will first focus on the curiosity about cloud-native data warehouses triggered by Snowflake.
+
+    # DWaaS (Data Warehouse as a Service)
+
+    Data warehousing has always been an important part of enterprise information construction. For example, before migrating to the Andes cloud data lake, Amazon e-commerce had the longest-running and largest Oracle Data Warehouse cluster (600+ Oracle instances). Traditional data warehouses were designed for small-scale or fixed cluster numbers of machines (specific hardware requirements, lack of elasticity), and relied on complex ETL (Extract-Transform-Load) workflows, assuming that data entering the warehouse was of predictable scale, with little change, and easily categorized by business, often coming from internal CRM/ERP/OLTP systems.
+
+    [Translation to be completed...]
+"2020-10-24-云数仓哪家强 Benchmark 来帮忙":
+  content: |
+    When customers don't know how to choose a cloud-native data warehouse solution, IT departments tend to use a "competitive selection" approach, utilizing public OLAP performance testing methods (such as TPC-H, TPC-DS, etc.) to evaluate numerous options. But can data warehouse performance testing truly help us find the right data warehouse solution? When searching online for publicly available benchmark materials, you'll find that each vendor claims their product performance is optimal, with data to prove it. One can imagine the chaotic situation data warehouse users face when making selections.
+
+    Each test draws conclusions in a specific context, such as **specific data warehouse configuration, data scale size, types of tasks tested**, etc. Many people are influenced and confused by biased results and promotions. **When one product claims to be much better than another, we should be cautious**. In the previous article "Looking at Cloud Data Warehouses from Snowflake's $67 Billion Market Value," we mentioned some excellent modern cloud-native data warehouses that are evolving toward similar technical directions: "**_columnar storage, decoupling of data producers and consumers, separation of compute and storage, elastically scalable computing resources, unlimited expansion without worrying about data lake storage capacity, data security, and reduced operational work and total cost of ownership_**". Although each product has different emphases due to architectural design, development time, and user scale differences—some emphasize simplicity and ease of use, some emphasize deep optimization, some emphasize concurrency, and some emphasize broad ecosystem integration.
+
+    Therefore, if you must conduct data warehouse benchmark testing, please note:
+
+    * View benchmarking as a process of learning new technologies and features
+    * Embrace detailed test steps and methods, verify the underlying logic yourself
+    * Interpret results in relation to specific contexts
+    * Focus on performance baselines and statistical probability results
+    * Keep up with the times, develop automated testing methods suitable for your own needs, and regularly collect and analyze data for reference
+
+    [Translation to be completed...]

@@ -10,19 +10,50 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
-            {{ post.title }}
+            <span class="lang-content" data-lang="zh">{{ post.title }}</span>
+            <span class="lang-content" data-lang="en" style="display:none;">
+                {% assign post_id = post.date | date: "%Y-%m-%d" | append: "-" | append: post.title | slugify %}
+                {% if site.data.translations[post_id].title %}
+                    {{ site.data.translations[post_id].title }}
+                {% else %}
+                    {{ post.title-en | default: post.title }}
+                {% endif %}
+            </span>
         </h2>
-        {% if post.subtitle %}
+        {% if post.subtitle or post.subtitle-en %}
         <h3 class="post-subtitle">
-            {{ post.subtitle }}
+            <span class="lang-content" data-lang="zh">{{ post.subtitle }}</span>
+            <span class="lang-content" data-lang="en" style="display:none;">
+                {% assign post_id = post.date | date: "%Y-%m-%d" | append: "-" | append: post.title | slugify %}
+                {% if site.data.translations[post_id].subtitle %}
+                    {{ site.data.translations[post_id].subtitle }}
+                {% else %}
+                    {{ post.subtitle-en | default: post.subtitle }}
+                {% endif %}
+            </span>
         </h3>
         {% endif %}
         <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
+            <span class="lang-content" data-lang="zh">{{ post.content | strip_html | truncate:200 }}</span>
+            <span class="lang-content" data-lang="en" style="display:none;">
+                {% assign post_id = post.date | date: "%Y-%m-%d" | append: "-" | append: post.title | slugify %}
+                {% if site.data.translations[post_id].content %}
+                    {{ site.data.translations[post_id].content | strip_html | truncate:200 }}
+                {% elsif post.content-en %}
+                    {{ post.content-en | strip_html | truncate:200 }}
+                {% else %}
+                    {{ post.content | strip_html | truncate:200 }}
+                {% endif %}
+            </span>
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        <span class="lang-content" data-lang="zh">
+            由 {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} 发布于 {{ post.date | date: "%Y-%m-%d" }}
+        </span>
+        <span class="lang-content" data-lang="en" style="display:none;">
+            Posted by {% if post.author-en %}{{ post.author-en }}{% elsif post.author %}{{ post.author }}{% else %}{{ site.title-en | default: site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        </span>
     </p>
 </div>
 <hr>
@@ -33,12 +64,18 @@ description-en: "Avoid empty talk, become a builder, an entrepreneur, and a crea
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+            <span class="lang-content" data-lang="zh">上一页</span>
+            <span class="lang-content" data-lang="en" style="display:none;">Newer Posts</span>
+        </a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+            <span class="lang-content" data-lang="zh">下一页</span>
+            <span class="lang-content" data-lang="en" style="display:none;">Older Posts</span>
+        </a>
     </li>
     {% endif %}
 </ul>
