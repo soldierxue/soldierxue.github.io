@@ -18,28 +18,22 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="{{ site.baseurl }}/" class="lang-item" data-lang-zh="首页" data-lang-en="Home">
-                            {% if page.lang == 'en' %}
-                                {{ site.languages.en.home }}
-                            {% else %}
-                                {{ site.languages.zh.home }}
-                            {% endif %}
+                            <span class="lang-content" data-lang="zh">首页</span>
+                            <span class="lang-content" data-lang="en" style="display:none;">Home</span>
                         </a>
                     </li>
-                    {% for p in site.pages %}
-                        {% if p.title and p.url != '/404.html' and p.url != '/offline.html' %}
-                        <li>
-                            <a href="{{ p.url | prepend: site.baseurl }}" class="lang-item" 
-                               data-lang-zh="{{ p.title-zh | default: p.title }}" 
-                               data-lang-en="{{ p.title-en | default: p.title }}">
-                                {% if p.lang == 'en' %}
-                                    {{ p.title-en | default: p.title }}
-                                {% else %}
-                                    {{ p.title-zh | default: p.title }}
-                                {% endif %}
-                            </a>
-                        </li>
-                        {% endif %}
-                    {% endfor %}
+                    <li>
+                        <a href="{{ site.baseurl }}/about/" class="lang-item" data-lang-zh="关于" data-lang-en="About">
+                            <span class="lang-content" data-lang="zh">关于</span>
+                            <span class="lang-content" data-lang="en" style="display:none;">About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/tags/" class="lang-item" data-lang-zh="标签" data-lang-en="Tags">
+                            <span class="lang-content" data-lang="zh">标签</span>
+                            <span class="lang-content" data-lang="en" style="display:none;">Tags</span>
+                        </a>
+                    </li>
                     <!-- Language Selector -->
                     <li class="language-selector">
                         <a href="javascript:void(0);" onclick="toggleLanguage()" id="language-toggle">
@@ -122,19 +116,19 @@
         document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
         
         // Update all navigation items
-        var langItems = document.querySelectorAll('.lang-item');
+        var langItems = document.querySelectorAll('.lang-content');
         langItems.forEach(function(item) {
-            if (lang === 'en') {
-                item.textContent = item.getAttribute('data-lang-en');
+            if (item.getAttribute('data-lang') === lang) {
+                item.style.display = 'inline';
             } else {
-                item.textContent = item.getAttribute('data-lang-zh');
+                item.style.display = 'none';
             }
         });
     }
 
     // Initialize language on page load
     document.addEventListener('DOMContentLoaded', function() {
-        var savedLang = localStorage.getItem('blog-language') || 'zh';
+        var savedLang = localStorage.getItem('blog-language') || 'en';
         updateLanguageUI(savedLang);
     });
 </script>

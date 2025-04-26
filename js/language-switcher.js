@@ -1,7 +1,7 @@
 // 全局语言切换功能
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化语言设置
-    var savedLang = localStorage.getItem('blog-language') || 'zh';
+    // 初始化语言设置 - 默认为英语
+    var savedLang = localStorage.getItem('blog-language') || 'en';
     updateLanguageUI(savedLang);
     
     // 更新所有语言相关元素
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var langToggleBtn = document.getElementById('language-toggle');
     if (langToggleBtn) {
         langToggleBtn.addEventListener('click', function() {
-            var currentLang = localStorage.getItem('blog-language') || 'zh';
+            var currentLang = localStorage.getItem('blog-language') || 'en';
             var newLang = currentLang === 'zh' ? 'en' : 'zh';
             localStorage.setItem('blog-language', newLang);
             updateLanguageUI(newLang);
