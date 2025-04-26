@@ -11,22 +11,53 @@
 # 最新文章翻译
 "2020-02-15-Netflix 最后一公里内容交付":
   title: "Netflix's Last Mile Content Delivery"
-  subtitle: "How Netflix optimizes content delivery to users"
-  description: "Exploring Netflix's innovative approach to content delivery and edge caching"
+  subtitle: "Technical Insights Behind Binge-Watching"
+  description: "Exploring how Netflix optimizes content delivery through the Open Connect program to enhance viewing experience"
   content: |
-    Netflix has developed a sophisticated content delivery system to ensure smooth streaming experiences for users worldwide. This article explores their approach to the "last mile" challenge.
-    
-    ## Netflix's Open Connect Program
-    
-    Netflix's Open Connect is a dedicated content delivery network designed to deliver Netflix TV shows and movies. By placing Open Connect Appliances (OCAs) at strategic locations within ISP networks, Netflix can deliver content more efficiently.
-    
-    These servers store the most popular content locally, reducing bandwidth costs and improving streaming quality for users. This approach has been crucial to Netflix's ability to deliver high-quality 4K content globally.
-    
-    ## Edge Caching Strategy
-    
-    Netflix employs a sophisticated edge caching strategy that predicts what content will be popular in specific regions. By pre-positioning this content closer to users, they can reduce buffering and improve the viewing experience.
-    
-    The system uses machine learning algorithms to predict viewing patterns and optimize content placement across their global network of servers.
+    # Disclaimer
+
+    _All articles on this site represent personal thoughts only, not the position of any company. All data comes from public information._
+
+    *Please indicate the source when reposting*
+
+    The company has notified us to stay at home for another **14** days. Going on like this, it will soon be exposed that everyone not going to the office isn't such a big deal. Will fixed workstations be completely eliminated in the future to save costs? Changes come unexpectedly.
+
+    Staying at home, I don't even have the energy to scroll through social media. Influenced by team culture, I quickly grab some time to enrich myself. Various documentaries and unfinished books on Kindle are definitely must-haves for homebodies. Thanks to Netflix, popular original series like "House of Cards," "Narcos," "Orange Is the New Black," "The Get Down," and others give us another option during boring times at home.
+
+    Before the New Year, listening to Professor Fei's enthusiastic chat, I discovered he is both a tech enthusiast and an experienced Netflix user. Regarding Netflix's technology, I've been focusing more on the AWS platform level. With the professor's hint, I learned that to solve the last-mile content delivery challenge for global users, Netflix actually abandoned popular third-party CDN services and was determined to build their own efficient and economical system to please Netflix end users. In this article, we'll explore Netflix's self-built and self-used content delivery network - the Open Connect solution.
+
+    # Streaming Media Internet Traffic Challenge
+
+    According to public data, Netflix currently serves 158 million paid members in 190 countries worldwide. Video streaming alone accounts for about 12% of global internet traffic. In 2011, Netflix at its peak consumed 32% of all US downstream internet traffic. The internet is a public infrastructure, and the development of HD video, live streaming, short videos, VR, and online education has intensified competition for internet bandwidth. Most importantly, how can we ensure and enhance the end user's entertainment experience on an increasingly crowded internet? At the same time, reducing bandwidth consumption is also an important aspect of cost reduction. For reference, iQiyi in China spent 2.19 billion yuan on bandwidth in 2017 (according to its prospectus).
+
+    Therefore, an intelligent content delivery network is very important for streaming media service providers. Netflix initially adopted a multi-CDN strategy, using providers including Akamai, Limelight, and Level3 for video content distribution. As the business expanded globally, Netflix made an important decision in 2011: to build its own CDN network. By March 2016, Netflix's VP Ken Florance revealed that 100% of video streams were delivered to end customers through the Open Connect network. The Netflix team considered several reasons for building their own solution:
+
+    * Netflix's streaming service had grown to become a heavyweight consumer of internet traffic, making direct or indirect cooperation with global Internet Service Providers (ISPs) very important for Netflix
+    * Compared to standard third-party CDN services that decide based on content access heat on demand, a customized solution could help Netflix design a more efficient and intelligent content caching algorithm, reducing overall internet bandwidth consumption
+    * Cost savings, as third-party CDNs are relatively uneconomical, and Netflix only focuses on streaming media services, making their self-built CDN technology more focused and simplified compared to general third-party CDNs
+
+    <img src="{{site.image-srv}}/img/20200215/1.png" alt="Third-party to self-built CDN">
+
+    As shown in the figure below, there are over 1,000 global deployment nodes (usually ISPs) for Netflix's edge servers, with over 10,000 edge servers deployed, including regions like Hong Kong in East Asia. Netflix achieves this through:
+
+    1. (Orange circles) Installing customized Open Connect servers at Internet Exchange Points globally and peering with multiple ISP networks to optimize network latency for customer access to edge devices
+    2. (Red circles) Providing equipment for free to certified access providers (ISPs), building an open cooperative ecosystem
+
+    <img src="{{site.image-srv}}/img/20200215/2.png" alt="OpenConnect Global Pops">
+
+    # How Does Netflix Streaming Work?
+
+    <img src="{{site.image-srv}}/img/20200215/3.png" alt="How Netflix works?">
+
+    As shown above, there are many types of client access terminal devices, such as mobile devices, PCs, smart TVs, set-top boxes, etc. All of Netflix's application services are currently deployed on AWS. The OpenConnect edge devices are only responsible for storing encoded video and other content, and providing streaming on-demand services to user terminals via HTTPS. OpenConnect edge devices must be able to communicate with AWS, regularly reporting device health status, local stored content metadata, and BGP routing information, etc. Apart from video playback provided by OpenConnect devices, users directly access various application services on the AWS side for other services, such as membership, video metadata services, customer service, search, personalization, favorites, ratings, and even which edge device address to return when clicking play is handled by the control plane, i.e., services on the AWS side.
+
+    # How Does OpenConnect Work?
+
+    <img src="{{site.image-srv}}/img/20200215/4.png" alt="How OpenConnect works?">
+
+    From the official diagram above, we can see that the user terminal first interacts with the control plane, which is deployed in AWS services, to submit a playback request. The control plane service will identify the user, determine if the user is authorized, and based on the user's optimal access path combined with OCA distribution information, select a group of OCA edge devices, and return the generated video playback address to the customer. The terminal then directly requests the OCA device to watch video content through this address.
+
+    #### OCA - Self-developed Edge Cache Server
     
     ## Benefits for ISPs and Users
     
