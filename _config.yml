@@ -133,3 +133,5 @@ tag_translations:
   架构设计: "Architecture Design"
   微服务: "Microservices"
   数据分析: "Data Analytics"
+# 默认语言设置
+default_lang: en

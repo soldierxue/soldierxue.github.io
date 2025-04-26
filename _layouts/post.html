@@ -36,21 +36,21 @@ layout: default
                         </a>
                         {% endfor %}
                     </div>
-                    <h1 data-title-zh="{{ page.title }}" data-title-en="{{ page.title-en | default: page.title }}">
+                    <h1 data-title-zh="{{ page.title }}" data-title-en="{{ page.title-en | default: site.data.translations[page.path | remove: '_posts/' | remove: '.md'].title | default: page.title }}">
                         <span class="lang-content" data-lang="zh">{{ page.title }}</span>
-                        <span class="lang-content" data-lang="en" style="display:none;">{{ page.title-en | default: page.title }}</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">{{ page.title-en | default: site.data.translations[page.path | remove: '_posts/' | remove: '.md'].title | default: page.title }}</span>
                     </h1>
                     {% comment %}
                         always create a h2 for keeping the margin , Hux
                     {% endcomment %}
-                    <h2 class="subheading" data-subtitle-zh="{{ page.subtitle }}" data-subtitle-en="{{ page.subtitle-en | default: page.subtitle }}">
+                    <h2 class="subheading" data-subtitle-zh="{{ page.subtitle }}" data-subtitle-en="{{ page.subtitle-en | default: site.data.translations[page.path | remove: '_posts/' | remove: '.md'].subtitle | default: page.subtitle }}">
                         <span class="lang-content" data-lang="zh">{{ page.subtitle }}</span>
-                        <span class="lang-content" data-lang="en" style="display:none;">{{ page.subtitle-en | default: page.subtitle }}</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">{{ page.subtitle-en | default: site.data.translations[page.path | remove: '_posts/' | remove: '.md'].subtitle | default: page.subtitle }}</span>
                     </h2>
                     <span class="meta">
                         Posted by 
                         <span class="lang-content" data-lang="zh">{{ page.author }}</span>
-                        <span class="lang-content" data-lang="en" style="display:none;">{{ page.author-en | default: page.author }}</span>
+                        <span class="lang-content" data-lang="en" style="display:none;">{{ page.author-en | default: "Jason Xue" }}</span>
                         on {{ page.date | date: "%B %-d, %Y" }}
                     </span>
                 </div>
@@ -70,7 +70,21 @@ layout: default
                 col-md-10 col-md-offset-1
                 post-container">
 
-                {{ content }}
+                <!-- Chinese Version -->
+                <div class="zh post-container">
+                    {{ content }}
+                </div>
+                
+                <!-- English Version -->
+                <div class="en post-container" style="display:none;">
+                    {% if page.content-en %}
+                        {{ page.content-en }}
+                    {% elsif site.data.translations[page.path | remove: '_posts/' | remove: '.md'].content %}
+                        {{ site.data.translations[page.path | remove: '_posts/' | remove: '.md'].content | markdownify }}
+                    {% else %}
+                        {{ content }}
+                    {% endif %}
+                </div>
                 
                 <hr>
                 <p><img src="{{site.image-srv}}/img/qrcode_wechat.jpg" alt="公众号二维码"></p>
@@ -235,7 +249,7 @@ layout: default
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
     async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
-        // BY Fix:去除标题前的‘#’ issues:<https://github.com/qiubaiying/qiubaiying.github.io/issues/137>
+        // BY Fix:去除标题前的'#' issues:<https://github.com/qiubaiying/qiubaiying.github.io/issues/137>
         // anchors.options = {
         //   visible: 'always',
         //   placement: 'right',

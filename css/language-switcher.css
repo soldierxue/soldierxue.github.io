@@ -1,0 +1,101 @@
+/* Language Switcher Styles */
+.language-selector {
+    margin-left: 15px;
+    position: relative;
+}
+
+#language-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#language-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#language-toggle:before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Language notification */
+.language-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Language tip */
+.language-tip {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 300px;
+    z-index: 9999;
+    font-size: 14px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #language-toggle {
+        padding: 8px 12px;
+    }
+    
+    #language-toggle:before {
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+    }
+    
+    .language-tip {
+        left: 10px;
+        right: 10px;
+        max-width: none;
+    }
+}
+
+/* Transition effects */
+.language-transition * {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Language content transition */
+.lang-content {
+    transition: opacity 0.3s ease;
+}
+
+/* Post container transition */
+.post-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Tag transition */
+.tag-item {
+    transition: background-color 0.3s ease;
+}

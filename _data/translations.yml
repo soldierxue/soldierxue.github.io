@@ -1,0 +1,139 @@
+# 博客文章翻译数据
+# 格式: 
+# post_id: 
+#   title: "英文标题"
+#   subtitle: "英文副标题"
+#   description: "英文描述"
+#   content: "英文内容"
+
+# 最新的三篇文章已经在文件中添加了双语支持，这里不需要重复
+
+# 示例文章翻译
+"2020-02-15-Netflix 最后一公里内容交付":
+  title: "Netflix's Last Mile Content Delivery"
+  subtitle: "How Netflix optimizes content delivery to users"
+  description: "Exploring Netflix's innovative approach to content delivery and edge caching"
+  content: |
+    Netflix has developed a sophisticated content delivery system to ensure smooth streaming experiences for users worldwide. This article explores their approach to the "last mile" challenge.
+    
+    ## Netflix's Open Connect Program
+    
+    Netflix's Open Connect is a dedicated content delivery network designed to deliver Netflix TV shows and movies. By placing Open Connect Appliances (OCAs) at strategic locations within ISP networks, Netflix can deliver content more efficiently.
+    
+    These servers store the most popular content locally, reducing bandwidth costs and improving streaming quality for users. This approach has been crucial to Netflix's ability to deliver high-quality 4K content globally.
+    
+    ## Edge Caching Strategy
+    
+    Netflix employs a sophisticated edge caching strategy that predicts what content will be popular in specific regions. By pre-positioning this content closer to users, they can reduce buffering and improve the viewing experience.
+    
+    The system uses machine learning algorithms to predict viewing patterns and optimize content placement across their global network of servers.
+    
+    ## Benefits for ISPs and Users
+    
+    This approach benefits both ISPs and end users. ISPs see reduced transit costs and network congestion, while users experience faster start times, fewer interruptions, and higher quality streaming.
+    
+    Netflix continues to innovate in this space, constantly improving their delivery infrastructure to support their growing global audience.
+
+"2020-01-10-别人家的年会，自家从不停歇的学习季":
+  title: "Others Have Annual Parties, We Have a Non-Stop Learning Season"
+  subtitle: "Reflections on continuous learning and growth"
+  description: "Sharing thoughts on the importance of continuous learning in the tech industry"
+  content: |
+    While many companies focus on elaborate annual parties, our team embraces a culture of continuous learning throughout the year. This approach has proven to be more valuable for both personal and organizational growth.
+    
+    ## The Learning Culture
+    
+    In the rapidly evolving tech industry, staying current requires constant learning. Rather than concentrating celebrations and reflections into a single annual event, we've created a culture where learning is integrated into our daily work.
+    
+    Team members are encouraged to share knowledge, experiment with new technologies, and dedicate time to personal development projects. This distributed approach to learning yields more consistent growth than periodic intensive training sessions.
+    
+    ## Benefits of Continuous Learning
+    
+    The benefits of this approach are numerous:
+    
+    1. Knowledge stays fresh and relevant
+    2. Team members develop a habit of curiosity and exploration
+    3. The organization becomes more adaptable to change
+    4. Innovation happens organically rather than being forced
+    
+    By prioritizing learning over ceremonial gatherings, we've created an environment where growth is the celebration.
+    
+    ## Looking Forward
+    
+    As we move forward, we'll continue to refine our learning culture, finding new ways to share knowledge and grow together. While we certainly don't discourage celebration, we believe that the greatest satisfaction comes from continuous improvement and mastery.
+
+"2020-12-13-云原生_AWS Lambda 支持自定义容器镜像初体验":
+  title: "Cloud-Native: First Experience with AWS Lambda Custom Container Images"
+  subtitle: "Exploring the new container support in AWS Lambda"
+  description: "A hands-on look at AWS Lambda's new support for custom container images"
+  content: |
+    AWS recently announced support for custom container images in Lambda, a significant enhancement to their serverless offering. This article shares my first-hand experience with this new feature.
+    
+    ## What's New with Lambda Container Support
+    
+    AWS Lambda now allows developers to package and deploy functions as container images up to 10GB in size. This is a major improvement over the previous 250MB deployment package limit and opens Lambda to more complex applications and use cases.
+    
+    The new feature supports custom runtimes and makes it easier to migrate container-based applications to a serverless architecture. It also simplifies the deployment of applications with complex dependencies.
+    
+    ## Hands-on Experience
+    
+    In my testing, I created a custom container image based on the AWS-provided base images. The process was straightforward:
+    
+    1. Start with an AWS-provided base image for your preferred runtime
+    2. Add your application code and dependencies
+    3. Configure the Lambda function handler
+    4. Build and push the container to Amazon ECR
+    5. Create or update a Lambda function to use the container image
+    
+    The deployment process was seamless, and the function performed identically to traditionally deployed Lambda functions.
+    
+    ## Benefits and Considerations
+    
+    The main benefits I observed include:
+    
+    - Consistent development and deployment experience for container users
+    - Ability to include larger dependencies and libraries
+    - Better integration with existing container-based CI/CD pipelines
+    - More control over the runtime environment
+    
+    However, there are some considerations to keep in mind:
+    
+    - Cold start times may increase with larger container images
+    - Container optimization becomes more important
+    - You still need to work within Lambda's execution environment constraints
+    
+    ## Conclusion
+    
+    AWS Lambda's support for custom container images represents a significant evolution in serverless computing. It bridges the gap between container and serverless workflows, offering developers more flexibility while maintaining the benefits of the serverless model.
+    
+    This feature will likely accelerate serverless adoption among organizations that have heavily invested in container-based workflows and tooling.
+# 标签翻译
+tag_translations:
+  CDN: "CDN"
+  云计算: "Cloud Computing"
+  AWS: "AWS"
+  Open Connect: "Open Connect"
+  微服务: "Microservices"
+  事件驱动: "Event-Driven"
+  架构: "Architecture"
+  云原生: "Cloud-Native"
+  容器: "Containers"
+  Lambda: "Lambda"
+  直播: "Live Streaming"
+  视频: "Video"
+  数据库: "Database"
+  分库分表: "Database Sharding"
+  成本管理: "Cost Management"
+  团队管理: "Team Management"
+  领导力: "Leadership"
+  创新: "Innovation"
+  混沌工程: "Chaos Engineering"
+  持续交付: "Continuous Delivery"
+  数据分析: "Data Analytics"
+  数据仓库: "Data Warehouse"
+  Snowflake: "Snowflake"
+  EMR: "EMR"
+  Spark: "Spark"
+  时序数据: "Time Series Data"
+  S3: "S3"
+  对象存储: "Object Storage"

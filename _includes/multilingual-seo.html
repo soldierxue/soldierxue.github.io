@@ -1,0 +1,35 @@
+<!-- Multilingual SEO -->
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}" />
+<link rel="alternate" hreflang="zh" href="{{ site.url }}{{ page.url }}?lang=zh" />
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}?lang=en" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="{% if page.title-en %}{{ page.title-en }}{% else %}{{ page.title }}{% endif %}">
+<meta itemprop="description" content="{% if page.description-en %}{{ page.description-en }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+{% if page.header-img %}
+<meta itemprop="image" content="{{ site.url }}{{ site.baseurl }}/{{ page.header-img }}">
+{% endif %}
+
+<!-- Open Graph data -->
+<meta property="og:title" content="{% if page.title-en %}{{ page.title-en }}{% else %}{{ page.title }}{% endif %}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+{% if page.header-img %}
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{{ page.header-img }}" />
+{% endif %}
+<meta property="og:description" content="{% if page.description-en %}{{ page.description-en }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+<meta property="og:site_name" content="{{ site.title }}" />
+{% if page.date %}
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+{% endif %}
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if page.title-en %}{{ page.title-en }}{% else %}{{ page.title }}{% endif %}">
+<meta name="twitter:description" content="{% if page.description-en %}{{ page.description-en }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+{% if page.header-img %}
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{{ page.header-img }}">
+{% endif %}
