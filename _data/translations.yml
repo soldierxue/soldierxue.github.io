@@ -187,19 +187,19 @@ tag_translations:
 
     ## Board of Directors
 
-    ![Board of Directors]({{site.image-srv}}/img/20241119/49b99aa7ecd129221754510916b3baad.png)
+    ![Board of Directors](https://d3an7w77306v75.cloudfront.net/img/20241119/49b99aa7ecd129221754510916b3baad.png)
 
     As of January 24, 2024, Amazon's Board of Directors includes 12 members. Apart from Jassy and Bezos, all are directors from corporations and academic institutions who represent shareholder interests, oversee company operations, but do not participate in day-to-day operations. They are responsible for major decisions such as appointing and dismissing the CEO. Board members are typically elected and appointed by shareholders.
 
     ## Executive Team
 
-    ![Executive Team]({{site.image-srv}}/img/20241119/4551f452da48b8bb6e0f203a786c4929.png)
+    ![Executive Team](https://d3an7w77306v75.cloudfront.net/img/20241119/4551f452da48b8bb6e0f203a786c4929.png)
 
     The Executive team includes roles such as CEO, CFO, etc., who are responsible for the company's daily operations and management, executing strategies formulated by the Board and S-Team. Executive team membership is fluid, with some executives simultaneously serving as S-Team members or Board members, ensuring that strategic decisions made by the S-Team align with the Board's overall vision for the company. Amazon's Executive team has fewer members than the Board, selected based on experience and capability.
 
     ## S-Team (Senior Leadership Team)
 
-    ![S-Team]({{site.image-srv}}/img/20241119/49ed1e138573a2203758c5ca680b5858.png)
+    ![S-Team](https://d3an7w77306v75.cloudfront.net/img/20241119/49ed1e138573a2203758c5ca680b5858.png)
 
     Amazon's Senior Leadership Team, known as S-Team, is responsible for setting goals and strategies, shaping company culture, and handling crises. S-Team members typically have worked at Amazon for many years and come from core business units such as AWS, global store operations, etc. S-Team members are directly appointed by the CEO.
 
@@ -214,7 +214,7 @@ tag_translations:
   content: |
     Amazon is committed to improving the builder experience, using data-driven methods to enhance employee productivity and satisfaction.
 
-    ![Developer Experience]({{site.image-srv}}/img/20241111/1a398ea5e0273b9becfc148b1cbaa237.png)
+    ![Developer Experience](https://d3an7w77306v75.cloudfront.net/img/20241111/1a398ea5e0273b9becfc148b1cbaa237.png)
 
     Back in 2022, Business Insider reported that Amazon CEO Andy created a new department called Amazon Software Builder Experience (ASBX) to address "fundamental pain points" raised by developers. Builders or developers are core assets and fighting force for many tech giants. While we've always talked about DevOps integrating development and operations, Amazon has been one of the exemplary companies successfully implementing DevOps culture, mechanisms, and tools. So why establish this horizontal ASBX department in 2022? What challenges does Amazon face in builder experience? And what new opportunities does GenAI bring to developer experience?
 
@@ -286,7 +286,7 @@ tag_translations:
 
     ## The Generative AI Wave is Surging
 
-    ![GenAI Wave]({{site.image-srv}}/img/20241111/053a1ed993cf35b4f0d4907382b6bfae.png)
+    ![GenAI Wave](https://d3an7w77306v75.cloudfront.net/img/20241111/053a1ed993cf35b4f0d4907382b6bfae.png)
 
     GenAI-assisted development is currently a scenario with broad prospects, including Microsoft Copilot, Amazon Q Developer, Gemini Code Assist from major tech companies, and many startups like Cursor AI, all focusing on improving developer experience. The following table compares the differences between Q Developer and CoPilot, highlighting the different focus areas of these products:
 
@@ -311,7 +311,7 @@ tag_translations:
 
     To learn more about the application of large language models in code development, you can refer to a research report prepared for KDD 2024: "Reasoning and planning with large language models in code development (survey for KDD 2024 tutorial)"
 
-    ![LLM in Code Development]({{site.image-srv}}/img/20241111/7bc60d42553f5a537d82907e37c2f18a.png)
+    ![LLM in Code Development](https://d3an7w77306v75.cloudfront.net/img/20241111/7bc60d42553f5a537d82907e37c2f18a.png)
 
     ---
 
@@ -321,7 +321,7 @@ tag_translations:
     - https://www.aboutamazon.com/news/workplace/amazons-annual-tech-survey-results-now-available
 "2024-11-06-大模型全程帮忙操作电脑和分析2024Q3亚马逊财报":
   content: |
-    ![AI Analyzing Financial Reports]({{site.image-srv}}/img/20241106/a34b24de6a39a796f30ecd79d63a201c.png)
+    ![AI Analyzing Financial Reports](https://d3an7w77306v75.cloudfront.net/img/20241106/a34b24de6a39a796f30ecd79d63a201c.png)
 
     I asked the large language model three questions, and it automatically controlled the computer to help me complete an analysis summary of Amazon's Q3 2024 financial report:
 
@@ -612,7 +612,7 @@ tag_translations:
 
     From an application infrastructure perspective, containers and serverless are increasingly mature and becoming the first choice for enterprises. However, as the number of services increases, service governance needs become more important, such as service registration and discovery, service routing, rate limiting and circuit breaking, monitoring and logging, elastic scaling, lane isolation (reducing blast radius), and more. In the early days when Netflix implemented cloud-native transformation on AWS, the AWS platform lacked these necessary service governance managed services. The Netflix team built a set of self-developed open-source service governance components based on AWS, including Eureka, Ribbon, Zuul, Hystrix, Titus, Spinnaker, etc. These components were deployed on Amazon EC2 and Elastic Scaling Groups (ASG) to build highly available and elastic service components. Today, more enterprises choose to build their own PaaS platforms based on containers, but for developers, the container platform alone is not enough to satisfy the software delivery value flywheel, from code to online highly reliable, elastic, high-performance, secure business services.
 
-    ![Intuit MSaaS]({{site.image-srv}}/img/20201206/1.png)
+    ![Intuit MSaaS](https://d3an7w77306v75.cloudfront.net/img/20201206/1.png)
 "2020-02-15-Netflix 最后一公里内容交付":
   content: |
     # Disclaimer
@@ -644,7 +644,7 @@ tag_translations:
 
     To implement the following live streaming architecture, what tools do we need to prepare?
 
-    ![LiveStreming Demo Preparation?]({{site.image-srv}}/img/20200222/1.png)
+    ![LiveStreming Demo Preparation?](https://d3an7w77306v75.cloudfront.net/img/20200222/1.png)
 
     [Translation to be completed...]
 "2020-02-19-聊直播，这些知识点你必须要懂":
@@ -712,7 +712,7 @@ tag_translations:
 
     The reason cloud-native has been able to expand from the technology domain to the investment circle (business domain), in the author's view, is because in today's era, digitalization, data-driven approaches, and intelligence can help enterprises quickly align business goals with technical goals, accelerate market validation and feedback mechanisms, thereby enhancing the market competitiveness of enterprise products or services.
 
-    ![VUCA World]({{site.image-srv}}/img/20200810/3.png)
+    ![VUCA World](https://d3an7w77306v75.cloudfront.net/img/20200810/3.png)
 
     # VUCA World - The Age of Chaos
 
@@ -727,7 +727,7 @@ tag_translations:
 
     These don't refer to three roles or positions in a company, but rather three leadership qualities. In the cloud solutions architect role, everyone needs to integrate these three qualities. The proportion of each quality varies in architect positions with different work scopes. The following figure represents my understanding:
 
-    ![Proportion of three qualities in different work scopes]({{site.image-srv}}/img/20200816/1.png)
+    ![Proportion of three qualities in different work scopes](https://d3an7w77306v75.cloudfront.net/img/20200816/1.png)
 
     # Execution
 
