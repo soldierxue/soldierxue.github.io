@@ -36,24 +36,24 @@
     * Compared to standard third-party CDN services that decide based on content access heat on demand, a customized solution could help Netflix design a more efficient and intelligent content caching algorithm, reducing overall internet bandwidth consumption
     * Cost savings, as third-party CDNs are relatively uneconomical, and Netflix only focuses on streaming media services, making their self-built CDN technology more focused and simplified compared to general third-party CDNs
 
-    <img src="{{site.image-srv}}/img/20200215/1.png" alt="Third-party to self-built CDN">
+    ![Third-party to self-built CDN](https://d3an7w77306v75.cloudfront.net/img/20200215/1.png)
 
     As shown in the figure below, there are over 1,000 global deployment nodes (usually ISPs) for Netflix's edge servers, with over 10,000 edge servers deployed, including regions like Hong Kong in East Asia. Netflix achieves this through:
 
     1. (Orange circles) Installing customized Open Connect servers at Internet Exchange Points globally and peering with multiple ISP networks to optimize network latency for customer access to edge devices
     2. (Red circles) Providing equipment for free to certified access providers (ISPs), building an open cooperative ecosystem
 
-    <img src="{{site.image-srv}}/img/20200215/2.png" alt="OpenConnect Global Pops">
+    ![OpenConnect Global Pops](https://d3an7w77306v75.cloudfront.net/img/20200215/2.png)
 
     # How Does Netflix Streaming Work?
 
-    <img src="{{site.image-srv}}/img/20200215/3.png" alt="How Netflix works?">
+    ![How Netflix works?](https://d3an7w77306v75.cloudfront.net/img/20200215/3.png)
 
     As shown above, there are many types of client access terminal devices, such as mobile devices, PCs, smart TVs, set-top boxes, etc. All of Netflix's application services are currently deployed on AWS. The OpenConnect edge devices are only responsible for storing encoded video and other content, and providing streaming on-demand services to user terminals via HTTPS. OpenConnect edge devices must be able to communicate with AWS, regularly reporting device health status, local stored content metadata, and BGP routing information, etc. Apart from video playback provided by OpenConnect devices, users directly access various application services on the AWS side for other services, such as membership, video metadata services, customer service, search, personalization, favorites, ratings, and even which edge device address to return when clicking play is handled by the control plane, i.e., services on the AWS side.
 
     # How Does OpenConnect Work?
 
-    <img src="{{site.image-srv}}/img/20200215/4.png" alt="How OpenConnect works?">
+    ![How OpenConnect works?](https://d3an7w77306v75.cloudfront.net/img/20200215/4.png)
 
     From the official diagram above, we can see that the user terminal first interacts with the control plane, which is deployed in AWS services, to submit a playback request. The control plane service will identify the user, determine if the user is authorized, and based on the user's optimal access path combined with OCA distribution information, select a group of OCA edge devices, and return the generated video playback address to the customer. The terminal then directly requests the OCA device to watch video content through this address.
 

@@ -82,14 +82,12 @@ layout: default
                         {{ page.content-en }}
                     {% elsif site.data.translations[post_id].content %}
                         {% assign english_content = site.data.translations[post_id].content %}
-                        {% assign english_content = english_content | replace: '![', '<img src="{{site.image-srv}}/' | replace: ']({{site.image-srv}}/', '" alt="' | replace: '.png)', '.png">' | replace: '.jpg)', '.jpg">' | replace: '.jpeg)', '.jpeg">' | replace: '.gif)', '.gif">' %}
                         {{ english_content | markdownify }}
                     {% else %}
                         {% for translation in site.data.translations %}
                             {% assign post_date = page.date | date: "%Y-%m-%d" %}
                             {% if translation[0] contains post_date %}
                                 {% assign english_content = translation[1].content %}
-                                {% assign english_content = english_content | replace: '![', '<img src="{{site.image-srv}}/' | replace: ']({{site.image-srv}}/', '" alt="' | replace: '.png)', '.png">' | replace: '.jpg)', '.jpg">' | replace: '.jpeg)', '.jpeg">' | replace: '.gif)', '.gif">' %}
                                 {{ english_content | markdownify }}
                                 {% break %}
                             {% endif %}
